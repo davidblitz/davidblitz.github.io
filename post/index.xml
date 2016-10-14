@@ -7,8 +7,32 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Fri, 07 Oct 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Oct 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://davidblitz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why I switched from Poole to Hugo</title>
+      <link>https://davidblitz.github.io/2016/10/14/2016-10-14-poole-to-hugo/</link>
+      <pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://davidblitz.github.io/2016/10/14/2016-10-14-poole-to-hugo/</guid>
+      <description>&lt;p&gt;I switched from &lt;a href=&#34;http://getpoole.com/&#34;&gt;Poole&lt;/a&gt; to &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; as my static site generator.&lt;/p&gt;
+
+&lt;p&gt;I think Poole was a
+good site generator to start building a blog from the technical perspective -
+it didn&amp;rsquo;t take a lot of time (some hours) to get from zero to publishing my
+first post via &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;. But over the course of the last few months, I learned
+that I couldn&amp;rsquo;t easily include my own pictures in posts and that support for &lt;a href=&#34;https://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;
+was not going to happen with poole.&lt;/p&gt;
+
+&lt;p&gt;So, the next step is Hugo which has - at least from my current point of view - a lot of advantages:&lt;/p&gt;
+
+&lt;p&gt;The documentation is much more extensive and after a few hours of studying the Quickstart Guide and building a
+sample website, I think I&amp;rsquo;m good to go. Hugo comes with a lot of neat &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt; - in contrast to
+just two themes shown on the Poole website. Including pictures is easy and well documented
+and I saw on the Hugo website that MathJax is supported as well.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>One-Liners in Python - Linear Regression Plot</title>
