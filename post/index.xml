@@ -19,7 +19,7 @@
       
       <guid>https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/</guid>
       <description>Motivation Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric into metric spaces whose elements can be represented by coordinates - like \(N \)-dimensional euclidean space , \( \mathbb{E}^N \).
-Let&amp;rsquo;s consider an isometric mapping from a graph with a path distance metric to n-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.</description>
+Let&amp;rsquo;s consider an isometric mapping from a graph with a path distance metric to \(N\)-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.</description>
     </item>
     
     <item>
