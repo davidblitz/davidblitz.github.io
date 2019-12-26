@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Euclidean Isometries of Graphs &middot; David Blitz</title>
+        <meta name="description" content="Motivation Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric into metric spaces whose elements can be represented by coordinates - like \(N \)-dimensional euclidean space , \( \mathbb{E}^N \).
+Let&rsquo;s consider an isometric mapping from a graph with a path distance metric to n-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.53" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Euclidean Isometries of Graphs">
+<meta property="og:description" content="Motivation Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric into metric spaces whose elements can be represented by coordinates - like \(N \)-dimensional euclidean space , \( \mathbb{E}^N \).
+Let&rsquo;s consider an isometric mapping from a graph with a path distance metric to n-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/davidblitz">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Euclidean Isometries of Graphs</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2019-12-25" itemprop="datePublished">Wed, Dec 25, 2019</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<h2 id="motivation">Motivation</h2>
+
+<p>Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric
+into metric spaces whose elements
+can be represented by coordinates - like \(N \)-dimensional
+<a href="https://en.wikipedia.org/wiki/Euclidean_space">euclidean space</a>
+, \( \mathbb{E}^N \).</p>
+
+<p>Let&rsquo;s consider an isometric mapping from a graph with a path distance metric
+to n-dimensional euclidean space for instance:
+\( f: G \rightarrow \mathbb{E}^N \).
+Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.e.
+\( d(v, w)_G = | f(v) - f(w) |_2 \).
+So, if we had such an isometry \( f: G \rightarrow \mathbb{E}^N \), we would have a neat way to compute distances
+between \(v, w\) in our original graph \(G\), just by computing the distances of the images \(f(v), f(w)\) in
+\(\mathbb{E}^N\). This operation would be in \( \mathcal{O}(N) \) which is efficient as long as the dimension
+can be kept small.</p>
+
+<h2 id="the-problem-with-euclidean-space">The Problem with Euclidean Space</h2>
+
+<p>The tough truth about isometrically
+embedding graphs into euclidean space, however, is that there are simple counterexamples of graphs which
+don&rsquo;t permit an isometric embedding into any \(N\)-dimensional euclidean space.</p>
+
+<h3 id="counterexamples">Counterexamples</h3>
+
+<h4 id="cycle-of-order-four">Cycle of Order Four</h4>
+
+<p>One of these counterexamples is the undirected
+cycle of order \(4\),
+\(C_4\), i.e. the cycle contains four
+vertices \(v_0, v_1, v_2, v_3\) such that there is an undirected edge between
+\(v_i\) and \(v_{i+1}\), as well as, between \(v_3\) and \(v_0\).</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Circle_graph_C4.svg" alt="cycle of order 4" /></p>
+
+<p>We now consider the unweighted path metric on \(C_4\), i.e. the weight of each edge is one, and
+the distance between any two vertices is just the number of edges in the shortest path between these vertices.</p>
+
+<p>The distance matrix for this metric can be easily verified to be the following:
+\[
+\begin{pmatrix} 0 &amp; 1 &amp; 2 &amp; 1 \\ 1 &amp; 0 &amp; 1 &amp; 2 \\ 2 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 0\end{pmatrix}.
+\]
+Here the entry in row \( i \) and column \( j \) is the distance of \( v_i \) to \( v_j \).
+We see, that there are only distances 1, 2 (and 0).
+Now, we want to show that there exists no \(4\) points in any euclidean space, which have
+the same distance matrix with respect to the euclidean distance.</p>
+
+<p>For this, we need
+<a href="https://en.wikipedia.org/wiki/Ptolemy%27s_inequality">Ptolemy&rsquo;s Inequality</a>
+ which holds four any quadrilateral in any Euclidean Space.
+It states:</p>
+
+<p>Given a quadrilateral with side lengths \(s_1, s_2, s_3, s_4\) and diagonals \(d_1, d_2\), then</p>
+
+<p>\[s_1s_3 + s_2s_4 \geq d_1 d_2\].</p>
+
+<p>[INCLUDE PICTURE OF QUADRILATERAL!]</p>
+
+<p>In our case the side lengths \(s_i\) have to be all one, because the edges have weight 1.
+The diagonals on the other hand need to have length 2.</p>
+
+<p>Thus the inequality becomes:</p>
+
+<p>\[
+s_1s_3 + s_2s_4 = 1*1 + 1*1 = 2 \geq 4 = 2*2 = d_1 d_2
+\].</p>
+
+<p>This is an obvious contradiction, hence there can&rsquo;t be an isometric embedding of
+\(C_4\) into any euclidean space.</p>
+
+<h4 id="star-with-three-rays">Star with Three Rays</h4>
+
+<p>Another counterexample is the star with three rays,
+\( K_{1, 3} \).
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Star_graphs.svg" alt="star graphs with 3, 4, 5 and 6 rays" />
+It has one center vertex \( v_0 \) which is connected to three outer vertices
+\( v_1, v_2, v_3 \) and otherwise
+there are no edges.</p>
+
+<p>Now, again we have only distances 1, 2 (and 0) when we consider the hop-metric.
+Let&rsquo;s consider the images of the star vertices under a hypothetical isometry</p>
+
+<p>\[
+f: K_{1, 3} \rightarrow \mathbb{E}^N
+\].</p>
+
+<p>We must have \( |f(v_0) - f(v_i) |_2 = 1 \) for \( i \in {1, 2, 3} \), as well as
+\(
+| f(v_i) - f(v_j) |_2 = 2
+\), for \( i \neq j \in {1, 2, 3} \).</p>
+
+<p>In euclidean space we also have the triangular inequality:
+\[
+| f(v_i) - f(v_j) |_2 \leq | f(v_i) - f(v_0) |_2 + | f(v_0) - f(v_j) |_2.
+\]
+In fact in our case, the triangular inequalities become equalities. This can only happen,
+if \( f(v_i), f(v_j), f(v_0) \) are collinear, i.e. on a line.</p>
+
+<p>More specifically, we must even have \( f(v_0) = \frac{f(v_i) + f(v_j)}{2} \).
+But this has to hold for all \( i \neq j \) which are not \( 0 \).
+Hence we ge for instance
+\[
+\frac{f(v_1) + f(v_2)}{2} = f(v_0) = \frac{f(v_2) + f(v_3)}{2}.
+\]
+Subtracting \( \frac{f(v_2)}{2} \) on the outer-left and outer right, we get
+\[
+\frac{f(v_1)}{2} = \frac{f(v_3)}{2}
+\]
+which means that the images of \(v_1, v_3\) have to be equal and have distance \(0\).
+This can&rsquo;t be, so there can&rsquo;t be an isometry from \( K_{1, 3} \) to any euclidean space.</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/embedding/">embedding</a>, 
+            
+                <a href="/tags/graphs/">graphs</a>, 
+            
+                <a href="/tags/isometry/">isometry</a>, 
+            
+                <a href="/tags/euclidean/">euclidean</a>, 
+            
+                <a href="/tags/metric/">metric</a>, 
+            
+                <a href="/tags/space/">space</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Euclidean%20Isometries%20of%20Graphs&url=https%3a%2f%2fdavidblitz.github.io%2f2019%2f12%2f25%2f2019-12-25-euclidean-embeddings%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2019%2f12%2f25%2f2019-12-25-euclidean-embeddings%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2019%2f12%2f25%2f2019-12-25-euclidean-embeddings%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </body>
+</html>
+

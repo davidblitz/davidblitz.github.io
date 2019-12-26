@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>For-Expressions in Scala &middot; David Blitz</title>
         <meta name="description" content="In my opinion, the for-keyword in Scala stands out among its analogues in other programming languages. This is, because it translates each so called generator in the brackets following the for-keyword into a function call and doesn&rsquo;t technically loop through some body. This being said, we are going to discuss first the, in my opinion, misnamed for-loops.
 For-Loops Let&rsquo;s consider the simple expression
 for( x &lt;- list) println(x)  this will be translated by the Scala compiler to">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.53" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="For-Expressions in Scala">
@@ -18,11 +18,12 @@ For-Loops Let&rsquo;s consider the simple expression
 for( x &lt;- list) println(x)  this will be translated by the Scala compiler to">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2016/08/01/2016-08-01-for-expressions/">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/normalize.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/highlight.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/style.css">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
     </head>
     <body>
         
@@ -51,6 +52,7 @@ for( x &lt;- list) println(x)  this will be translated by the Scala compiler to"
                         
                         
                         
+                        
                     </div>
 
                     <ul class="site-nav">
@@ -67,15 +69,16 @@ for( x &lt;- list) println(x)  this will be translated by the Scala compiler to"
         <header class="post-header">
     <h1 class="post-title" itemprop="name headline">For-Expressions in Scala</h1>
     
-    <p class="post-date">
+    <p class="post-date post-line">
         <span>Published <time datetime="2016-08-01" itemprop="datePublished">Mon, Aug 1, 2016</time></span>
         <span>by</span>
-        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
                 <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
             </span>
         </span>
     </p>
+    
 </header>
 
         <div class="post-content clearfix" itemprop="articleBody">
@@ -168,23 +171,30 @@ for(x &lt;- list; y &lt;- list2) yield x-y
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=For-Expressions%20in%20Scala&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
-            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-            <i class="fa fa-twitter"></i>
-            <span class="hidden">Twitter</span>
-        </a>
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=For-Expressions%20in%20Scala&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
-            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-            <i class="fa fa-facebook"></i>
-            <span class="hidden">Facebook</span>
-        </a>
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
-           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-           <i class="fa fa-google-plus"></i>
-            <span class="hidden">Google+</span>
-        </a>
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f08%2f01%2f2016-08-01-for-expressions%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
     </div>
 </footer>
 
@@ -207,7 +217,7 @@ for(x &lt;- list; y &lt;- list2) yield x-y
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -217,9 +227,15 @@ for(x &lt;- list; y &lt;- list2) yield x-y
         </footer>
 
         <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
     </body>
 </html>
 

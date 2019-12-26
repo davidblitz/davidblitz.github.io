@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>The Visitor Pattern &middot; David Blitz</title>
         <meta name="description" content="So recently, I came across the visitor pattern. As I learned, it is a way to extend an object with methods after the class of said object has been compiled. Or more fundamentally, as Wikipedia puts it -
  [it is] a way of separating an algorithm from an object structure on which it operates.
  A visitor basically walks through (visits) all or just part of the memberfields of an object and then through the memberfields of the memberfields and so on.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.53" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="The Visitor Pattern">
@@ -18,11 +18,12 @@
  A visitor basically walks through (visits) all or just part of the memberfields of an object and then through the memberfields of the memberfields and so on.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2016/07/03/2016-07-03-visitor-pattern/">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/normalize.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/highlight.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/style.css">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
     </head>
     <body>
         
@@ -51,6 +52,7 @@
                         
                         
                         
+                        
                     </div>
 
                     <ul class="site-nav">
@@ -67,15 +69,16 @@
         <header class="post-header">
     <h1 class="post-title" itemprop="name headline">The Visitor Pattern</h1>
     
-    <p class="post-date">
+    <p class="post-date post-line">
         <span>Published <time datetime="2016-07-03" itemprop="datePublished">Sun, Jul 3, 2016</time></span>
         <span>by</span>
-        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
                 <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
             </span>
         </span>
     </p>
+    
 </header>
 
         <div class="post-content clearfix" itemprop="articleBody">
@@ -179,23 +182,30 @@ def apply(node: Node): Int = {
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=The%20Visitor%20Pattern&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
-            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-            <i class="fa fa-twitter"></i>
-            <span class="hidden">Twitter</span>
-        </a>
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=The%20Visitor%20Pattern&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
-            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-            <i class="fa fa-facebook"></i>
-            <span class="hidden">Facebook</span>
-        </a>
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
-           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-           <i class="fa fa-google-plus"></i>
-            <span class="hidden">Google+</span>
-        </a>
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f03%2f2016-07-03-visitor-pattern%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
     </div>
 </footer>
 
@@ -218,7 +228,7 @@ def apply(node: Node): Int = {
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -228,9 +238,15 @@ def apply(node: Node): Int = {
         </footer>
 
         <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
     </body>
 </html>
 

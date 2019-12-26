@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/</link>
+    <description>Recent content in Tags on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Wed, 25 Dec 2019 16:00:29 +0100</lastBuildDate>
+    
+	<atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Embedding</title>
+      <link>https://davidblitz.github.io/tags/embedding/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/embedding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Euclidean</title>
+      <link>https://davidblitz.github.io/tags/euclidean/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/euclidean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graphs</title>
+      <link>https://davidblitz.github.io/tags/graphs/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/graphs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Isometry</title>
+      <link>https://davidblitz.github.io/tags/isometry/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/isometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Metric</title>
+      <link>https://davidblitz.github.io/tags/metric/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/metric/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Space</title>
+      <link>https://davidblitz.github.io/tags/space/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/space/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on BlitzBlog</title>
-    <link>https://davidblitz.github.io/post/index.xml</link>
-    <description>Recent content in Post-rsses on BlitzBlog</description>
+    <title>Posts on BlitzBlog</title>
+    <link>https://davidblitz.github.io/post/</link>
+    <description>Recent content in Posts on BlitzBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Fri, 14 Oct 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://davidblitz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 Dec 2019 16:00:29 +0100</lastBuildDate>
+    
+	<atom:link href="https://davidblitz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
-      <title>Why I switched from Poole to Hugo</title>
-      <link>https://davidblitz.github.io/2016/10/14/2016-10-14-poole-to-hugo/</link>
-      <pubDate>Fri, 14 Oct 2016 00:00:00 +0000</pubDate>
+      <title>Euclidean Isometries of Graphs</title>
+      <link>https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/</link>
+      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
       
-      <guid>https://davidblitz.github.io/2016/10/14/2016-10-14-poole-to-hugo/</guid>
-      <description>&lt;p&gt;I switched from &lt;a href=&#34;http://getpoole.com/&#34;&gt;Poole&lt;/a&gt; to &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; as my static site generator.&lt;/p&gt;
-
-&lt;p&gt;I think Poole was a
-good site generator to start building a blog from the technical perspective -
-it didn&amp;rsquo;t take a lot of time (some hours) to get from zero to publishing my
-first post via &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;. But over the course of the last few months, I learned
-that I couldn&amp;rsquo;t easily include my own pictures in posts and that support for &lt;a href=&#34;https://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt;
-was not going to happen with poole.&lt;/p&gt;
-
-&lt;p&gt;So, the next step is Hugo which has - at least from my current point of view - a lot of advantages:&lt;/p&gt;
-
-&lt;p&gt;The documentation is much more extensive and after a few hours of studying the Quickstart Guide and building a
-sample website, I think I&amp;rsquo;m good to go. Hugo comes with a lot of neat &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt; - in contrast to
-just two themes shown on the Poole website. Including pictures is easy and well documented
-and I saw on the Hugo website that MathJax is supported as well.&lt;/p&gt;
-</description>
+      <guid>https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/</guid>
+      <description>Motivation Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric into metric spaces whose elements can be represented by coordinates - like \(N \)-dimensional euclidean space , \( \mathbb{E}^N \).
+Let&amp;rsquo;s consider an isometric mapping from a graph with a path distance metric to n-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.</description>
     </item>
     
     <item>
@@ -40,23 +28,9 @@ and I saw on the Hugo website that MathJax is supported as well.&lt;/p&gt;
       <pubDate>Fri, 07 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/10/07/2016-10-07-linear-regression/</guid>
-      <description>&lt;p&gt;When I was showing a friend the advantages of python over Excel/LibreCalc, I remembered
-the truly beautiful &lt;a href=&#34;https://stanford.edu/~mwaskom/software/seaborn/index.html&#34;&gt;Seaborn Library&lt;/a&gt; which produces plots like the following.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://davidblitz.github.io/images/2016-10-07-linearregression.png&#34; alt=&#34;plot&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As one can see, this a standard scatterplot of a two dimensional dataset together with a regression line fitted to it - the light blue shade indicates a 95% confidence interval btw. It turns out that creating this standard diagram is as easy as&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pandas as pd
-import seaborn as sns
-...
-#create/load your pandas dataframe here
-sns.regplot(x=&amp;quot;your_dataframe_column1&amp;quot;, y=&amp;quot;your_dataframe_column2&amp;quot;,
-            data=your_pandas_dataframe)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Of course, you might need to have a &lt;a href=&#34;http://pandas.pydata.org/pandas-docs/stable/10min.html#min&#34;&gt;10 minute look at Pandas&lt;/a&gt;, as well.&lt;/p&gt;
-</description>
+      <description>When I was showing a friend the advantages of python over Excel/LibreCalc, I remembered the truly beautiful Seaborn Library which produces plots like the following.
+As one can see, this a standard scatterplot of a two dimensional dataset together with a regression line fitted to it - the light blue shade indicates a 95% confidence interval btw. It turns out that creating this standard diagram is as easy as
+import pandas as pd import seaborn as sns .</description>
     </item>
     
     <item>
@@ -65,65 +39,10 @@ sns.regplot(x=&amp;quot;your_dataframe_column1&amp;quot;, y=&amp;quot;your_dataf
       <pubDate>Tue, 09 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/08/09/2016-08-09-bankers-rounding/</guid>
-      <description>
-
-&lt;p&gt;Let&amp;rsquo;s talk about rounding! I challenge you to type in the
-following in a Python3 REPL and not be surprised:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;round(41.5)
-round(42.5)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&amp;hellip; I thought so!&lt;/p&gt;
-
-&lt;p&gt;In the following, I wanna first give an intuitive explanation of this so called &amp;ldquo;Banker&amp;rsquo;s Rounding&amp;rdquo; method and then give some examples where this Rounding Method is of some use.&lt;/p&gt;
-
-&lt;h2 id=&#34;an-intuitive-explanation&#34;&gt;An Intuitive Explanation&lt;/h2&gt;
-
-&lt;p&gt;As you might have guessed, Banker&amp;rsquo;s Rounding always rounds a real number r
- to the next even number whenever there is two equally distant integers a, a+1 next to r, i.e. r = x.5 where x is a sequence of digits.&lt;/p&gt;
-
-&lt;p&gt;The usual method for resolving this tie-situation, is to always round up. The downside of this method is a systematic error, or bias. This becomes clear when we type in the following in our REPL.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
-l = [i + 0.5 for i in range(10)]
-l_commonly_rounded = [math.ceil(r) for r in l]
-l_bankster_rounded = [round(r) for r in l]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Notice that the &lt;code&gt;math.ceil&lt;/code&gt; function yields the same result as the grade school rounding method in this special case.
- Now, let&amp;rsquo;s compare the average error we made by rounding with each of these methods:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;zip1 = zip(l_commonly_rounded, l)
-zip2 = zip(l_bankster_rounded, l)
-
-mean_error1 = sum([a-r for (a, r) in zip1])/len(zip1)
-mean_error2 = sum([a-r for (a, r) in zip2])/len(zip2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see, since we always rounded up with the common method, we get an average error of 0.5, whereas in this specific example the Banker&amp;rsquo;s Method did very well:
-the errors cancelled out and the average error is zero.&lt;/p&gt;
-
-&lt;p&gt;Notice, that if we had taken the absolute values of the differences, as our measure of error, the result would have been equally good or bad for both methods. So what this experiment is telling us, is that rounding to even numbers performs well on &lt;em&gt;sums&lt;/em&gt;, not &lt;em&gt;individual&lt;/em&gt; numbers, where the absolute error is always 0.5, obviously.&lt;/p&gt;
-
-&lt;h2 id=&#34;applications&#34;&gt;Applications&lt;/h2&gt;
-
-&lt;p&gt;There is one notorious incident where not rounding to the next even (or uneven number for that matter) led to trouble. According to &lt;a href=&#34;https://en.wikipedia.org/wiki/Rounding#Round_half_to_even&#34;&gt;this Wikipedia entry&lt;/a&gt;, in 1982 the Vancouver Stock Exchange introduced a new index (for penny-stocks according to &lt;a href=&#34;http://www5.in.tum.de/~huckle/Vancouv.pdf&#34;&gt;this&lt;/a&gt;) and set its initial value to 1000.000 . Two years later the index had fallen to a value around 520 even though the indexed asset&amp;rsquo;s values had risen in general! After using another rounding method the index was revalued at 1098.892 .&lt;/p&gt;
-
-&lt;p&gt;In &lt;a href=&#34;https://blogs.msdn.microsoft.com/ericlippert/2003/09/26/bankers-rounding/&#34;&gt;a comment to another post on this subject&lt;/a&gt; I read a shady method to exploit this method of rounding:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Notice any interest paid out is odd, while loans are even? It’s to get that extra half after rounding.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I have to admit, that I didn&amp;rsquo;t think this exploit through. So I don&amp;rsquo;t know if makes sense or if it is really applied by OBs. But then it fits too well with the name and shame of this article!&lt;/p&gt;
-
-&lt;h2 id=&#34;going-further&#34;&gt;Going Further&lt;/h2&gt;
-
-&lt;p&gt;Having seen the benefits of rounding to even, there is still room for improvement: what if our sampling domain has predominantly numbers with odd or even integer part? Then the errors would in general not cancel out nicely when summing. For this problem, we would need some kind of &lt;a href=&#34;https://en.wikipedia.org/wiki/Rounding#Stochastic_rounding&#34;&gt;stochastic rounding&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;For more examples of the pitfalls of rounding, you might wanna check out &lt;a href=&#34;http://ta.twi.tudelft.nl/users/vuik/wi211/disasters.html&#34;&gt;this site&lt;/a&gt;.&lt;/p&gt;
-</description>
+      <description>Let&amp;rsquo;s talk about rounding! I challenge you to type in the following in a Python3 REPL and not be surprised:
+round(41.5) round(42.5)  &amp;hellip; I thought so!
+In the following, I wanna first give an intuitive explanation of this so called &amp;ldquo;Banker&amp;rsquo;s Rounding&amp;rdquo; method and then give some examples where this Rounding Method is of some use.
+An Intuitive Explanation As you might have guessed, Banker&amp;rsquo;s Rounding always rounds a real number r to the next even number whenever there is two equally distant integers a, a+1 next to r, i.</description>
     </item>
     
     <item>
@@ -132,87 +51,9 @@ the errors cancelled out and the average error is zero.&lt;/p&gt;
       <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/08/01/2016-08-01-for-expressions/</guid>
-      <description>
-
-&lt;p&gt;In my opinion, the &lt;code&gt;for&lt;/code&gt;-keyword in Scala stands out among its analogues
-in other programming languages. This is, because it translates each so called generator in the brackets following
-the &lt;code&gt;for&lt;/code&gt;-keyword into a function call and doesn&amp;rsquo;t technically
-loop through some body.
-This being said, we are going to discuss first the, in my opinion, misnamed for-loops.&lt;/p&gt;
-
-&lt;h2 id=&#34;for-loops&#34;&gt;For-Loops&lt;/h2&gt;
-
-&lt;p&gt;Let&amp;rsquo;s consider the simple expression&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;for( x &amp;lt;- list) println(x)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;this will be translated by the Scala compiler to&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;list foreach (x =&amp;gt; println)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;x &amp;lt;- list&lt;/code&gt; part in the above example is called a generator. It can look more involved and for these details I&amp;rsquo;m referring to the Further Reading section.&lt;/p&gt;
-
-&lt;p&gt;Now, if the &lt;code&gt;list&lt;/code&gt; object in this example is not of type &lt;code&gt;List[A]&lt;/code&gt;, as the name is suggesting, but of some other type which doesn&amp;rsquo;t have a foreach  function the Scala compiler will throw an error:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;for( x &amp;lt;- new Test(3)) println(x)
--&amp;gt;error: value foreach is not a member of Test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So far so good: We might have seen a pretty elegant way to reduce for-loops to something more primary by the Scala compiler, but in the end it does nothing more than your standard Python or Java loop.&lt;/p&gt;
-
-&lt;h2 id=&#34;for-expressions&#34;&gt;For-Expressions&lt;/h2&gt;
-
-&lt;p&gt;This is changing, however, with the so called for-expressions which use the &lt;code&gt;yield&lt;/code&gt;-keyword.
-A simple example of a for-expression looks like this:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;val list = List(1, 2, 3)
-for( x &amp;lt;- list) yield 2*x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you type this in your scala interpreter the output will be&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;List[Int] = List(2, 4, 6)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It returned a List! Why is that?&lt;/p&gt;
-
-&lt;p&gt;As with for-loops, this for-expression is syntactic sugar for a map applied to the &lt;code&gt;list&lt;/code&gt;-object. Scala translates the above expression to&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;list.map(x =&amp;gt; 2*x)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is in fact equivalent to the above for-expression!&lt;/p&gt;
-
-&lt;p&gt;But wait: what if put two of these generators into the brackets of our for-expression?&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;val list = List(1, 2, 3)
-val list2 = List(3, 2, 1)
-for(x &amp;lt;- list; y &amp;lt;- list2) yield x-y
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here the result is:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;List[Int] = List(-2, -1, 0, -1, 0, 1, 0, 1, 2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It turns out, this is translated to a flatMap followed by a map:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;list.flatMap(x =&amp;gt; list2.map(y =&amp;gt; x-y))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This doesn&amp;rsquo;t just work for Scala collections but also for your own data types. And even better: if you only define, say, a map function in your own data type, you will still be able to use for-expressions with only one generator on your data type. (Why? - because Scala does the type checking only after translating the for-loops and for-expressions.)&lt;/p&gt;
-
-&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
-
-&lt;p&gt;How does this work in general you may ask? Since there are much more general for-expressions than those I have covered so far, I will stop here and refer those who are interested to the following links.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.artima.com/pins1ed/for-expressions-revisited.html&#34;&gt;For-Expressions Revisited&lt;/a&gt; for a more in-depth and formal discussion of for-loops and for-expressions&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/ScalaReference.pdf&#34;&gt;The Scala Language Specification&lt;/a&gt; for a concise and full-blown definition&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>In my opinion, the for-keyword in Scala stands out among its analogues in other programming languages. This is, because it translates each so called generator in the brackets following the for-keyword into a function call and doesn&amp;rsquo;t technically loop through some body. This being said, we are going to discuss first the, in my opinion, misnamed for-loops.
+For-Loops Let&amp;rsquo;s consider the simple expression
+for( x &amp;lt;- list) println(x)  this will be translated by the Scala compiler to</description>
     </item>
     
     <item>
@@ -221,27 +62,9 @@ for(x &amp;lt;- list; y &amp;lt;- list2) yield x-y
       <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/07/17/2016-07-17-erastothenes-sieve/</guid>
-      <description>&lt;p&gt;It turns out that you can implement the core of &lt;a href=&#34;https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes&#34;&gt;Erastothenes&amp;rsquo; Sieve&lt;/a&gt;
-in one line of Scala code:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;def sieve(stream: Stream[Int]): Stream[Int] =
-  stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;(btw the #:: sign is for prepending an element to a Stream[T] object)&lt;/p&gt;
-
-&lt;p&gt;Now, I cheated a bit and you still have to call the sieve function with a
-stream of all Int&amp;rsquo;s &amp;gt; 1. But this is not verbose at all:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;def from(n: Int): Stream[Int] =
-  n #:: from(n+1)
-
-sieve(from(2))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So after all, it turns out that we need five lines really. But I hope you will
-agree that this implementation of &lt;em&gt;The Sieve&lt;/em&gt; is very elegant.&lt;/p&gt;
-</description>
+      <description>It turns out that you can implement the core of Erastothenes&amp;rsquo; Sieve in one line of Scala code:
+def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0))  (btw the #:: sign is for prepending an element to a Stream[T] object)
+Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&amp;rsquo;s &amp;gt; 1. But this is not verbose at all:</description>
     </item>
     
     <item>
@@ -250,98 +73,9 @@ agree that this implementation of &lt;em&gt;The Sieve&lt;/em&gt; is very elegant
       <pubDate>Sun, 03 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/07/03/2016-07-03-visitor-pattern/</guid>
-      <description>
-
-&lt;p&gt;So recently, I came across the visitor pattern. As I learned, it is a way to extend an object with methods after the class of said object has been compiled. Or more fundamentally, as Wikipedia puts it -&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;[it is] a way of separating an algorithm from an object structure on which it operates.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A visitor basically walks through (visits) all  or just part of the memberfields of an object and then through the memberfields of the memberfields and so on. At each visit it performs an action depending on the type of the memberfield.&lt;/p&gt;
-
-&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;We begin by writing a simple binary tree structure.
-The tree consists of internal nodes and leaves which are both subclasses of an abstract node class. An internal node has a left child and a right child as members. A leaf&amp;rsquo;s only member is an integer.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;package visitabletree
-
-abstract class Node {
-  def accept(v: Visitor): Unit
-}
-
-case class InternalNode(left: Node, right: Node) extends Node {
-  def leftChild = left
-  def rightChild = right
-  def accept(v: Visitor): Unit = v.visit(this)
-}
-
-case class LeafNode(value: Int) extends Node {
-  def leafValue: Int = this.value
-  def accept(v: Visitor): Unit = v.visit(this)
-}
-
-
-trait Visitor {
-  def visit(node: InternalNode): Unit
-  def visit(node: LeafNode): Unit
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In order to make this tree &amp;ldquo;visitable&amp;rdquo;, we needed to add an accept method to InternalNode, LeafNode and Node, which accepts objects which implement the Visitor trait (which would be something like an interface in Java).
-We will see why this is necessary after the next bit of code&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Since we now are eager to find out the sum of the leaf integers of some trees and we don&amp;rsquo;t want to recompile our Node classes which are quite fine, we start writing a visitor class for our node.&lt;/p&gt;
-
-&lt;p&gt;As mentioned earlier, a visitor needs to perform an action for each object it visits. The structure of our classes more or less forces us to walk through the tree recursively, so the obvious actions for our visitor would be to save the value of a LeafNode in a mutable variable.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;package visitabletree
-
-class SumVisitor extends Visitor {
-  var result: Int = _
-
-  def visit(node: LeafNode): Unit =
-    result = node.leafValue
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For an InternalNode, on the other hand, we are going to get the result for the two child nodes and add them.&lt;/p&gt;
-
-&lt;p&gt;In order to call the visit method on a child node we need the, up to now mysterious, accept method of the child nodes, like so&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-scala&#34;&gt;...
-def visit(node: InternalNode): Unit =
-  result = apply(node.leftChild) + apply(node.rightChild)
-
-def apply(node: Node): Int = {
-  node.accept(this)
-  result
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It becomes clear now that the accept method is a way to be able to call the right visit method depending on the type of the child node (leaf or internal). Notice that we need an extra apply function to get the result of the children.
- In case you didn&amp;rsquo;t know: since our program will decide only at runtime which of the two visit methods to choose, we need a compiler feature called dynamic binding.&lt;/p&gt;
-
-&lt;h2 id=&#34;variants-of-the-visitor-pattern&#34;&gt;Variants of the Visitor pattern&lt;/h2&gt;
-
-&lt;p&gt;In my opinion, there are two main variants to define a visitor pattern depending on where the actual logic for walking through the data structure is defined: In the above example, this responsibility was placed on the visitor, since we actually called the accept method of the children in the visit(:InternalNode) method.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;ve seen an implementation of the visitor pattern where the data structures where providing also the algorithms for walking through. This was great for implementing new visitors but looked quite convoluted on the &amp;ldquo;visitable side&amp;rdquo;.&lt;/p&gt;
-
-&lt;h2 id=&#34;outlook-and-question&#34;&gt;Outlook and Question&lt;/h2&gt;
-
-&lt;p&gt;Not only is the visitor pattern just cool stuff, it also seems to have theoretical importance as a partial solution to the so called &amp;ldquo;Expression Problem&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Finally, a question that kind of bugged me when preparing this post is the following: Is there a similar pattern which is purely functional and doesn&amp;rsquo;t make use of mutable variables (like the result field in the SumVisitor).&lt;/p&gt;
-
-&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;The Essence of the Visitor Pattern&amp;rdquo;, Jens Palsberg, C.Barry Jay&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Independently Extensible Solutions to the Expression Problem&amp;rdquo;, Matthias Zenger, Martin Odersky&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>So recently, I came across the visitor pattern. As I learned, it is a way to extend an object with methods after the class of said object has been compiled. Or more fundamentally, as Wikipedia puts it -
+ [it is] a way of separating an algorithm from an object structure on which it operates.
+ A visitor basically walks through (visits) all or just part of the memberfields of an object and then through the memberfields of the memberfields and so on.</description>
     </item>
     
   </channel>

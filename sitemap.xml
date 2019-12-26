@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://davidblitz.github.io/</loc>
-    <lastmod>2016-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://davidblitz.github.io/2016/10/14/2016-10-14-poole-to-hugo/</loc>
-    <lastmod>2016-10-14T00:00:00+00:00</lastmod>
+    <loc>https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
   </url>
   
   <url>
@@ -34,6 +30,60 @@
   <url>
     <loc>https://davidblitz.github.io/2016/07/03/2016-07-03-visitor-pattern/</loc>
     <lastmod>2016-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/embedding/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/euclidean/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/graphs/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/isometry/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/metric/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/post/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/space/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/</loc>
+    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

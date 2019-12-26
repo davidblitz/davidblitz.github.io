@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>One Liners in Scala - The Sieve of Erastothenes &middot; David Blitz</title>
         <meta name="description" content="It turns out that you can implement the core of Erastothenes&rsquo; Sieve in one line of Scala code:
 def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0))  (btw the #:: sign is for prepending an element to a Stream[T] object)
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&rsquo;s &gt; 1. But this is not verbose at all:">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.17" />
+        <meta name="generator" content="Hugo 0.53" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="One Liners in Scala - The Sieve of Erastothenes">
@@ -18,11 +18,12 @@ def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&rsquo;s &gt; 1. But this is not verbose at all:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2016/07/17/2016-07-17-erastothenes-sieve/">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/normalize.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/highlight.css">
-        <link rel="stylesheet" href="https://davidblitz.github.io/css/style.css">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
     </head>
     <body>
         
@@ -51,6 +52,7 @@ Now, I cheated a bit and you still have to call the sieve function with a stream
                         
                         
                         
+                        
                     </div>
 
                     <ul class="site-nav">
@@ -67,15 +69,16 @@ Now, I cheated a bit and you still have to call the sieve function with a stream
         <header class="post-header">
     <h1 class="post-title" itemprop="name headline">One Liners in Scala - The Sieve of Erastothenes</h1>
     
-    <p class="post-date">
+    <p class="post-date post-line">
         <span>Published <time datetime="2016-07-17" itemprop="datePublished">Sun, Jul 17, 2016</time></span>
         <span>by</span>
-        <span itemscope="" itemprop="author" itemtype="http://schema.org/Person">
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
             <span itemprop="name">
                 <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
             </span>
         </span>
     </p>
+    
 </header>
 
         <div class="post-content clearfix" itemprop="articleBody">
@@ -108,23 +111,30 @@ agree that this implementation of <em>The Sieve</em> is very elegant.</p>
     
 
     <div class="share">
-        <a class="icon-twitter" href="http://twitter.com/share?text=One%20Liners%20in%20Scala%20-%20The%20Sieve%20of%20Erastothenes&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
-            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-            <i class="fa fa-twitter"></i>
-            <span class="hidden">Twitter</span>
-        </a>
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=One%20Liners%20in%20Scala%20-%20The%20Sieve%20of%20Erastothenes&url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
 
-        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
-            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-            <i class="fa fa-facebook"></i>
-            <span class="hidden">Facebook</span>
-        </a>
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
 
-        <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
-           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-           <i class="fa fa-google-plus"></i>
-            <span class="hidden">Google+</span>
-        </a>
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2016%2f07%2f17%2f2016-07-17-erastothenes-sieve%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
     </div>
 </footer>
 
@@ -147,7 +157,7 @@ agree that this implementation of <em>The Sieve</em> is very elegant.</p>
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2016 / Powered by <a href="http://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2019 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -157,9 +167,15 @@ agree that this implementation of <em>The Sieve</em> is very elegant.</p>
         </footer>
 
         <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
     </body>
 </html>
 
