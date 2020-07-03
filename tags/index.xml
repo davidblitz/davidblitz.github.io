@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Wed, 25 Dec 2019 16:00:29 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate>
     
 	<atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Embedding</title>
       <link>https://davidblitz.github.io/tags/embedding/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/embedding/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>Euclidean</title>
       <link>https://davidblitz.github.io/tags/euclidean/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/euclidean/</guid>
       <description></description>
@@ -33,7 +33,7 @@
     <item>
       <title>Graphs</title>
       <link>https://davidblitz.github.io/tags/graphs/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/graphs/</guid>
       <description></description>
@@ -42,7 +42,7 @@
     <item>
       <title>Isometry</title>
       <link>https://davidblitz.github.io/tags/isometry/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/isometry/</guid>
       <description></description>
@@ -51,16 +51,25 @@
     <item>
       <title>Metric</title>
       <link>https://davidblitz.github.io/tags/metric/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/metric/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Power Transform</title>
+      <link>https://davidblitz.github.io/tags/power-transform/</link>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/power-transform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Space</title>
       <link>https://davidblitz.github.io/tags/space/</link>
-      <pubDate>Wed, 25 Dec 2019 16:00:29 +0100</pubDate>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/space/</guid>
       <description></description>

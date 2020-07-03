@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>The Power Transform of Graphs &middot; David Blitz</title>
+        <meta name="description" content="Motivation We&rsquo;ve seen in a previous post, that it would be desirable to have isometries between a given graph to some \( N \) dimensional euclidean space. We also saw that this is in general impossible - even for very simple graphs.
+In this post, we are going to explore a simple fix for that, which consists in transforming the metric of the graph in an invertible way before looking for an isometry.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.53" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="The Power Transform of Graphs">
+<meta property="og:description" content="Motivation We&rsquo;ve seen in a previous post, that it would be desirable to have isometries between a given graph to some \( N \) dimensional euclidean space. We also saw that this is in general impossible - even for very simple graphs.
+In this post, we are going to explore a simple fix for that, which consists in transforming the metric of the graph in an invertible way before looking for an isometry.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidblitz.github.io/2020/07/03/2020-01-02-power-transform/">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/davidblitz">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">The Power Transform of Graphs</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2020-07-03" itemprop="datePublished">Fri, Jul 3, 2020</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    
+
+<h2 id="motivation">Motivation</h2>
+
+<p>We&rsquo;ve seen in a previous post, that it would be desirable to have isometries between a given
+graph to some \( N \) dimensional euclidean space.
+We also saw that this is in general impossible - even for very simple graphs.</p>
+
+<p>In this post, we are going to explore a simple fix for that, which consists in transforming
+the metric of the graph in an invertible way before looking for an isometry.</p>
+
+<h2 id="the-power-transform">The Power Transform</h2>
+
+<p>The power transform metric \( d_{G, c} \) of a graph \( G \) with path distance metric \( d_{G} \)
+arises when we just take each distance in the graph to the power \( c \):
+\[
+d_{G, c}(v, w) = d_G(v, w)^c.
+\]
+In order to guarantee that we still end up with a metric. The parameter \( c \) for the power transform
+metric needs to be \( 0 &lt; c &lt; 1 \).</p>
+
+<p>In the following we are going show that the power transform indeed preserves the metric properties.</p>
+
+<h2 id="definition-of-a-metric-space">Definition of a Metric Space</h2>
+
+<p>Let&rsquo;s quickly review the three defining properties of a metric space. A pair \( (X, d_X) \) is a metric
+space if X is a set and \(d_X \) is a function from pairs of elements of \( X \) to the non-negative real numbers:
+\[
+d_X : X \times X \rightarrow \mathbb{R}^{+}_0.
+\]
+Additionally \( d_X \) must satisfy the following three properties:</p>
+
+<p>(1) \(d_X(x, y) = 0 \) if and only if \(x = y \)</p>
+
+<p>(2) \( d_X(x, y) = d_X(y, x) \) for all \(x, y \in X \)</p>
+
+<p>(3) \( d_X(x, y) \leq d_X(x, z) + d_X(z, y) \) for all \(x, y, z \in X \)</p>
+
+<p>Property (2) is called symmetry and property (3) is the famous triangle inequality.</p>
+
+<p>Now it is straightforward to see, that if we apply the power transform to a general metric space
+just as we have defined it before in the case of graphs, properties (1) and (2) are preserved by the
+power transform.</p>
+
+<h2 id="the-triangle-inequality-and-the-power-transform">The Triangle Inequality and the Power Transform</h2>
+
+<p>We now want to see, that the power transform preserves the triangle inequality.
+By this we mean,
+\[
+d_3 \leq d_1 + d_2 \Rightarrow d_3^c \leq d_1^c + d_2^c,
+\]
+for all \( c \in [0, 1] \).
+We define \( f(d) = d^c \) and since \(f\) is monotonically increasing, we can see that
+\[
+d_3 \leq d_1 + d_2 \Rightarrow f(d_3) \leq f(d_1 + d_2).
+\]
+Hence, it suffices to show that we have the inequality
+\[
+f(d_1 + d_2) \leq f(d_1) + f(d_2).
+\]
+For this,
+we realize that \( f(d) = d^c\), for all \( d \in (0, \infty) \) is a
+<a href="https://en.wikipedia.org/wiki/Concave_function">concave function</a> (for instance by checking that
+the second derivative is always positive on \( \mathbb{R}^{+}_{0} \)).
+Also we need the fact that \( f(0) = 0 \).
+The proof of the above inequality is heavily inspired by the Wikipedia article on
+<a href="https://en.wikipedia.org/wiki/Convex_function">convexity</a>.
+First we note that from concavity we have:
+\[
+\lambda \in [0, 1] \Rightarrow f(\lambda d) = f(\lambda d + (1 - \lambda) 0) \geq \lambda f(d) + (1 - \lambda)f(0)
+\]
+Now using \( f(0) = 0 \) we get:
+\[
+\lambda \in [0, 1] \Rightarrow f(\lambda d) \geq \lambda f(d).
+\]</p>
+
+<p>This allows us to apply the following little trick:
+\[
+f(d_1 + d_2) = \frac{d_1}{d_1 + d_2} f(d_1 + d_2) + \frac{d_2}{d_1 + d_2}f(d_1 + d_2).
+\]
+Since \( \frac{d_1}{d_1 + d_2} \) and \( \frac{d_2}{d_1 + d_2} \) are both between \(0\) and \(1\)
+we can apply our lemma [REF!!!] from before and conclude:
+\[
+f(d_1 + d_2) \leq f(\frac{d_1}{d_1 + d_2} (d_1 + d_2)) + f(\frac{d_2}{d_1 + d_2} (d_1 + d_2))
+= f(d_1) + f(d_2).
+\] This concludes the proof of the power transform preserving the triangle inequality :))</p>
+
+<h2 id="fixing-some-counterexamples">Fixing some Counterexamples</h2>
+
+<p>We now proceed to embed the counterexamples from the previous post into Euclidean space after applying a power transform.</p>
+
+<h3 id="cycle-of-order-four">Cycle of Order Four</h3>
+
+<p>For the cycle of order four with shortest path metric
+, \( C_4 \) we apply a power transform with parameter \( c=0.5 \).
+We denote the resulting metric space by \( C_4^{0.5} \) and observe that the resulting distance matrix
+becomes
+\[
+\begin{pmatrix}
+0 &amp; 1 &amp; \sqrt{2} &amp; 1 \\ 1 &amp; 0 &amp; 1 &amp; \sqrt{2} \\ \sqrt{2} &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; \sqrt{2} &amp; 1 &amp; 0
+\end{pmatrix}.
+\]
+But this is just the distance matrix of the corners of an ordinary square in \( \mathbb{R}^2 \).
+Hence we can map the vertices of \( C_4^{0.5} \) to the corners of some square in \( \mathbb{R}^2 \)
+such that adjacent vertices are mapped to adjacent corners.</p>
+
+<h3 id="star-with-three-rays">Star with Three Rays</h3>
+
+<p>The other counterexample in the previous post was the star with three rays \( K_{1, 3} \).
+Again, we can apply a power transform with parameter \( c=0.5 \) and the resulting metric space,
+\( K_{1, 3}^{0.5} \), will turn out to be embeddable into \( \mathbb{R}^3 \):
+As before, we denote the center vertex by \( v_0 \) and the other vertices by \( v_1, v_2, v_3 \).
+The map \( f: K_{1, 3}^{0.5} \rightarrow \mathbb{R}^3 \) can be defined by \( f(v_0) = 0 \)
+and \( f(v_i) = e_i \) for the remaining \( i= 1, 2, 3 \).
+Since the distance between two unit vectors is just \( \sqrt{2} \) this works out fine.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We introduced the power transform for finite metric spaces. Then we saw that the power transform
+is a fix for embedding the two simple graphs with shortest-path-metric
+(\( C_4 \) and \( K_{1, 3} \)) which we have proven to not be
+isometrically embeddable into Euclidean space in the previous post.</p>
+
+<p>It remains to be seen that we can indeed embed ANY finite graph (and even any finite metric space) into Euclidean
+space provided we apply an appropriate power transform to it.</p>
+
+<p>But that is a proof for a different time :)</p>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/embedding/">embedding</a>, 
+            
+                <a href="/tags/graphs/">graphs</a>, 
+            
+                <a href="/tags/isometry/">isometry</a>, 
+            
+                <a href="/tags/euclidean/">euclidean</a>, 
+            
+                <a href="/tags/metric/">metric</a>, 
+            
+                <a href="/tags/space/">space</a>, 
+            
+                <a href="/tags/power-transform/">power-transform</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=The%20Power%20Transform%20of%20Graphs&url=https%3a%2f%2fdavidblitz.github.io%2f2020%2f07%2f03%2f2020-01-02-power-transform%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2020%2f07%2f03%2f2020-01-02-power-transform%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2020%2f07%2f03%2f2020-01-02-power-transform%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </body>
+</html>
+

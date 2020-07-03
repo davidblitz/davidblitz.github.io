@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Power Transform on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/power-transform/</link>
+    <description>Recent content in Power Transform on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate>
+    
+	<atom:link href="https://davidblitz.github.io/tags/power-transform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Power Transform of Graphs</title>
+      <link>https://davidblitz.github.io/2020/07/03/2020-01-02-power-transform/</link>
+      <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/2020/07/03/2020-01-02-power-transform/</guid>
+      <description>Motivation We&amp;rsquo;ve seen in a previous post, that it would be desirable to have isometries between a given graph to some \( N \) dimensional euclidean space. We also saw that this is in general impossible - even for very simple graphs.
+In this post, we are going to explore a simple fix for that, which consists in transforming the metric of the graph in an invertible way before looking for an isometry.</description>
+    </item>
+    
+  </channel>
+</rss>

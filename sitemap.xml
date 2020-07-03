@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://davidblitz.github.io/2020/07/03/2020-01-02-power-transform/</loc>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://davidblitz.github.io/2019/12/25/2019-12-25-euclidean-embeddings/</loc>
     <lastmod>2019-12-25T16:00:29+01:00</lastmod>
   </url>
@@ -34,55 +39,61 @@
   
   <url>
     <loc>https://davidblitz.github.io/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/embedding/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/euclidean/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/graphs/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/isometry/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/metric/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/post/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidblitz.github.io/tags/power-transform/</loc>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/space/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://davidblitz.github.io/tags/</loc>
-    <lastmod>2019-12-25T16:00:29+01:00</lastmod>
+    <lastmod>2020-07-03T16:00:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
