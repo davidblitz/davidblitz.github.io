@@ -6,16 +6,16 @@
         <title>For-Expressions in Scala &middot; David Blitz</title>
         <meta name="description" content="In my opinion, the for-keyword in Scala stands out among its analogues in other programming languages. This is, because it translates each so called generator in the brackets following the for-keyword into a function call and doesn&rsquo;t technically loop through some body. This being said, we are going to discuss first the, in my opinion, misnamed for-loops.
 For-Loops Let&rsquo;s consider the simple expression
-for( x &lt;- list) println(x)  this will be translated by the Scala compiler to">
+for( x &lt;- list) println(x) this will be translated by the Scala compiler to">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.53" />
+        <meta name="generator" content="Hugo 0.89.4" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="For-Expressions in Scala">
 <meta property="og:description" content="In my opinion, the for-keyword in Scala stands out among its analogues in other programming languages. This is, because it translates each so called generator in the brackets following the for-keyword into a function call and doesn&rsquo;t technically loop through some body. This being said, we are going to discuss first the, in my opinion, misnamed for-loops.
 For-Loops Let&rsquo;s consider the simple expression
-for( x &lt;- list) println(x)  this will be translated by the Scala compiler to">
+for( x &lt;- list) println(x) this will be translated by the Scala compiler to">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2016/08/01/2016-08-01-for-expressions/">
         <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
@@ -38,10 +38,6 @@ for( x &lt;- list) println(x)  this will be translated by the Scala compiler to"
                             </h1>
                         
                         <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
-                        
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
-                                <i class="fa fa-twitter"></i>
-                            </a>
                         
                         
                         
@@ -84,82 +80,43 @@ for( x &lt;- list) println(x)  this will be translated by the Scala compiler to"
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    
-
-<p>In my opinion, the <code>for</code>-keyword in Scala stands out among its analogues
+    <p>In my opinion, the <code>for</code>-keyword in Scala stands out among its analogues
 in other programming languages. This is, because it translates each so called generator in the brackets following
 the <code>for</code>-keyword into a function call and doesn&rsquo;t technically
 loop through some body.
 This being said, we are going to discuss first the, in my opinion, misnamed for-loops.</p>
-
 <h2 id="for-loops">For-Loops</h2>
-
 <p>Let&rsquo;s consider the simple expression</p>
-
-<pre><code class="language-scala">for( x &lt;- list) println(x)
-</code></pre>
-
-<p>this will be translated by the Scala compiler to</p>
-
-<pre><code class="language-scala">list foreach (x =&gt; println)
-</code></pre>
-
-<p>The <code>x &lt;- list</code> part in the above example is called a generator. It can look more involved and for these details I&rsquo;m referring to the Further Reading section.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">for</span><span style="color:#f92672">(</span> x <span style="color:#66d9ef">&lt;-</span> list<span style="color:#f92672">)</span> println<span style="color:#f92672">(</span>x<span style="color:#f92672">)</span>
+</code></pre></div><p>this will be translated by the Scala compiler to</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">list foreach <span style="color:#f92672">(</span>x <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">)</span>
+</code></pre></div><p>The <code>x &lt;- list</code> part in the above example is called a generator. It can look more involved and for these details I&rsquo;m referring to the Further Reading section.</p>
 <p>Now, if the <code>list</code> object in this example is not of type <code>List[A]</code>, as the name is suggesting, but of some other type which doesn&rsquo;t have a foreach  function the Scala compiler will throw an error:</p>
-
-<pre><code class="language-scala">for( x &lt;- new Test(3)) println(x)
--&gt;error: value foreach is not a member of Test
-</code></pre>
-
-<p>So far so good: We might have seen a pretty elegant way to reduce for-loops to something more primary by the Scala compiler, but in the end it does nothing more than your standard Python or Java loop.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">for</span><span style="color:#f92672">(</span> x <span style="color:#66d9ef">&lt;-</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">))</span> println<span style="color:#f92672">(</span>x<span style="color:#f92672">)</span>
+<span style="color:#f92672">-&gt;</span>error<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">value</span> <span style="color:#66d9ef">foreach</span> <span style="color:#66d9ef">is</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">a</span> <span style="color:#66d9ef">member</span> <span style="color:#66d9ef">of</span> <span style="color:#66d9ef">Test</span>
+</code></pre></div><p>So far so good: We might have seen a pretty elegant way to reduce for-loops to something more primary by the Scala compiler, but in the end it does nothing more than your standard Python or Java loop.</p>
 <h2 id="for-expressions">For-Expressions</h2>
-
 <p>This is changing, however, with the so called for-expressions which use the <code>yield</code>-keyword.
 A simple example of a for-expression looks like this:</p>
-
-<pre><code class="language-scala">val list = List(1, 2, 3)
-for( x &lt;- list) yield 2*x
-</code></pre>
-
-<p>If you type this in your scala interpreter the output will be</p>
-
-<pre><code class="language-scala">List[Int] = List(2, 4, 6)
-</code></pre>
-
-<p>It returned a List! Why is that?</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> list <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span> x <span style="color:#66d9ef">&lt;-</span> list<span style="color:#f92672">)</span> <span style="color:#66d9ef">yield</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x
+</code></pre></div><p>If you type this in your scala interpreter the output will be</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">4</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">6</span><span style="color:#f92672">)</span>
+</code></pre></div><p>It returned a List! Why is that?</p>
 <p>As with for-loops, this for-expression is syntactic sugar for a map applied to the <code>list</code>-object. Scala translates the above expression to</p>
-
-<pre><code class="language-scala">list.map(x =&gt; 2*x)
-</code></pre>
-
-<p>This is in fact equivalent to the above for-expression!</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">list<span style="color:#f92672">.</span>map<span style="color:#f92672">(</span>x <span style="color:#66d9ef">=&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x<span style="color:#f92672">)</span>
+</code></pre></div><p>This is in fact equivalent to the above for-expression!</p>
 <p>But wait: what if put two of these generators into the brackets of our for-expression?</p>
-
-<pre><code class="language-scala">val list = List(1, 2, 3)
-val list2 = List(3, 2, 1)
-for(x &lt;- list; y &lt;- list2) yield x-y
-</code></pre>
-
-<p>Here the result is:</p>
-
-<pre><code class="language-scala">List[Int] = List(-2, -1, 0, -1, 0, 1, 0, 1, 2)
-</code></pre>
-
-<p>It turns out, this is translated to a flatMap followed by a map:</p>
-
-<pre><code class="language-scala">list.flatMap(x =&gt; list2.map(y =&gt; x-y))
-</code></pre>
-
-<p>This doesn&rsquo;t just work for Scala collections but also for your own data types. And even better: if you only define, say, a map function in your own data type, you will still be able to use for-expressions with only one generator on your data type. (Why? - because Scala does the type checking only after translating the for-loops and for-expressions.)</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> list <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">val</span> list2 <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#ae81ff">3</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>x <span style="color:#66d9ef">&lt;-</span> list<span style="color:#f92672">;</span> y <span style="color:#66d9ef">&lt;-</span> list2<span style="color:#f92672">)</span> <span style="color:#66d9ef">yield</span> x<span style="color:#f92672">-</span>y
+</code></pre></div><p>Here the result is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>
+</code></pre></div><p>It turns out, this is translated to a flatMap followed by a map:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">list<span style="color:#f92672">.</span>flatMap<span style="color:#f92672">(</span>x <span style="color:#66d9ef">=&gt;</span> list2<span style="color:#f92672">.</span>map<span style="color:#f92672">(</span>y <span style="color:#66d9ef">=&gt;</span> x<span style="color:#f92672">-</span>y<span style="color:#f92672">))</span>
+</code></pre></div><p>This doesn&rsquo;t just work for Scala collections but also for your own data types. And even better: if you only define, say, a map function in your own data type, you will still be able to use for-expressions with only one generator on your data type. (Why? - because Scala does the type checking only after translating the for-loops and for-expressions.)</p>
 <h2 id="further-reading">Further Reading</h2>
-
 <p>How does this work in general you may ask? Since there are much more general for-expressions than those I have covered so far, I will stop here and refer those who are interested to the following links.</p>
-
 <ul>
 <li><a href="http://www.artima.com/pins1ed/for-expressions-revisited.html">For-Expressions Revisited</a> for a more in-depth and formal discussion of for-loops and for-expressions</li>
 <li><a href="http://www.scala-lang.org/old/sites/default/files/linuxsoft_archives/docu/files/ScalaReference.pdf">The Scala Language Specification</a> for a concise and full-blown definition</li>
@@ -217,7 +174,7 @@ for(x &lt;- list; y &lt;- list2) yield x-y
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>

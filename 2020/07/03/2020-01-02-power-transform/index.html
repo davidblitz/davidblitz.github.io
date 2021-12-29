@@ -8,7 +8,7 @@
 In this post, we are going to explore a simple fix for that, which consists in transforming the metric of the graph in an invertible way before looking for an isometry.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.53" />
+        <meta name="generator" content="Hugo 0.89.4" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="The Power Transform of Graphs">
@@ -36,10 +36,6 @@ In this post, we are going to explore a simple fix for that, which consists in t
                             </h1>
                         
                         <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
-                        
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
-                                <i class="fa fa-twitter"></i>
-                            </a>
                         
                         
                         
@@ -82,19 +78,13 @@ In this post, we are going to explore a simple fix for that, which consists in t
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    
-
-<h2 id="motivation">Motivation</h2>
-
+    <h2 id="motivation">Motivation</h2>
 <p>We&rsquo;ve seen in a previous post, that it would be desirable to have isometries between a given
 graph to some \( N \) dimensional euclidean space.
 We also saw that this is in general impossible - even for very simple graphs.</p>
-
 <p>In this post, we are going to explore a simple fix for that, which consists in transforming
 the metric of the graph in an invertible way before looking for an isometry.</p>
-
 <h2 id="the-power-transform">The Power Transform</h2>
-
 <p>The power transform metric \( d_{G, c} \) of a graph \( G \) with path distance metric \( d_{G} \)
 arises when we just take each distance in the graph to the power \( c \):
 \[
@@ -102,32 +92,22 @@ d_{G, c}(v, w) = d_G(v, w)^c.
 \]
 In order to guarantee that we still end up with a metric, the parameter \( c \) for the power transform
 metric needs to be \( 0 \leq c \leq 1 \).</p>
-
 <p>In the following we are going show that the power transform indeed preserves the metric properties.</p>
-
 <h2 id="definition-of-a-metric-space">Definition of a Metric Space</h2>
-
 <p>Let&rsquo;s quickly review the three defining properties of a metric space. A pair \( (X, d_X) \) is a metric
 space if X is a set and \(d_X \) is a function from pairs of elements of \( X \) to the non-negative real numbers:
 \[
 d_X : X \times X \rightarrow \mathbb{R}^{+}_0.
 \]
 Additionally \( d_X \) must satisfy the following three properties:</p>
-
 <p>(1) \(d_X(x, y) = 0 \) if and only if \(x = y \)</p>
-
 <p>(2) \( d_X(x, y) = d_X(y, x) \) for all \(x, y \in X \)</p>
-
 <p>(3) \( d_X(x, y) \leq d_X(x, z) + d_X(z, y) \) for all \(x, y, z \in X \)</p>
-
 <p>Property (2) is called symmetry and property (3) is the famous triangle inequality.</p>
-
 <p>Now it is straightforward to see, that if we apply the power transform to a general metric space
 just as we have defined it before in the case of graphs, properties (1) and (2) are preserved by the
 power transform.</p>
-
 <h2 id="the-triangle-inequality-and-the-power-transform">The Triangle Inequality and the Power Transform</h2>
-
 <p>We now want to see, that the power transform preserves the triangle inequality.
 By this we mean,
 \[
@@ -157,7 +137,6 @@ Now using \( f(0) = 0 \) we get:
 \[
 \lambda \in [0, 1] \Rightarrow f(\lambda d) \geq \lambda f(d).
 \]</p>
-
 <p>This allows us to apply the following little trick:
 \[
 f(d_1 + d_2) = \frac{d_1}{d_1 + d_2} f(d_1 + d_2) + \frac{d_2}{d_1 + d_2}f(d_1 + d_2).
@@ -168,13 +147,9 @@ we can apply our lemma [REF!!!] from before and conclude:
 f(d_1 + d_2) \leq f(\frac{d_1}{d_1 + d_2} (d_1 + d_2)) + f(\frac{d_2}{d_1 + d_2} (d_1 + d_2))
 = f(d_1) + f(d_2).
 \] This concludes the proof of the power transform preserving the triangle inequality :))</p>
-
 <h2 id="fixing-some-counterexamples">Fixing some Counterexamples</h2>
-
 <p>We now proceed to embed the counterexamples from the previous post into Euclidean space after applying a power transform.</p>
-
 <h3 id="cycle-of-order-four">Cycle of Order Four</h3>
-
 <p>For the cycle of order four with shortest path metric
 , \( C_4 \) we apply a power transform with parameter \( c=0.5 \).
 We denote the resulting metric space by \( C_4^{0.5} \) and observe that the resulting distance matrix
@@ -187,9 +162,7 @@ becomes
 But this is just the distance matrix of the corners of an ordinary square in \( \mathbb{R}^2 \).
 Hence we can map the vertices of \( C_4^{0.5} \) to the corners of some square in \( \mathbb{R}^2 \)
 such that adjacent vertices are mapped to adjacent corners.</p>
-
 <h3 id="star-with-three-rays">Star with Three Rays</h3>
-
 <p>The other counterexample in the previous post was the star with three rays \( K_{1, 3} \).
 Again, we can apply a power transform with parameter \( c=0.5 \) and the resulting metric space,
 \( K_{1, 3}^{0.5} \), will turn out to be embeddable into \( \mathbb{R}^3 \):
@@ -197,17 +170,13 @@ As before, we denote the center vertex by \( v_0 \) and the other vertices by \(
 The map \( f: K_{1, 3}^{0.5} \rightarrow \mathbb{R}^3 \) can be defined by \( f(v_0) = 0 \)
 and \( f(v_i) = e_i \) for the remaining \( i= 1, 2, 3 \).
 Since the distance between two unit vectors is just \( \sqrt{2} \) this works out fine.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>We introduced the power transform for finite metric spaces. Then we saw that the power transform
 is a fix for embedding the two simple graphs with shortest-path-metric
 (\( C_4 \) and \( K_{1, 3} \)) which we have proven to not be
 isometrically embeddable into Euclidean space in the previous post.</p>
-
 <p>It remains to be seen that we can indeed embed ANY finite graph (and even any finite metric space) into Euclidean
 space provided we apply an appropriate power transform to it.</p>
-
 <p>But that is a proof for a different time :)</p>
 
 </div>
@@ -282,7 +251,7 @@ space provided we apply an appropriate power transform to it.</p>
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>

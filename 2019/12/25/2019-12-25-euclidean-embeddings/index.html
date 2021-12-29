@@ -8,7 +8,7 @@
 Let&rsquo;s consider an isometric mapping from a graph with a path distance metric to \(N\)-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.53" />
+        <meta name="generator" content="Hugo 0.89.4" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="Euclidean Isometries of Graphs">
@@ -36,10 +36,6 @@ Let&rsquo;s consider an isometric mapping from a graph with a path distance metr
                             </h1>
                         
                         <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
-                        
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
-                                <i class="fa fa-twitter"></i>
-                            </a>
                         
                         
                         
@@ -82,16 +78,12 @@ Let&rsquo;s consider an isometric mapping from a graph with a path distance metr
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    
-
-<h2 id="motivation">Motivation</h2>
-
+    <h2 id="motivation">Motivation</h2>
 <p>Last year, I became interested in (approximate) isometric embeddings of graphs with the path distance metric
 into metric spaces whose elements
 can be represented by coordinates - like \(N \)-dimensional
 <a href="https://en.wikipedia.org/wiki/Euclidean_space">euclidean space</a>
 , \( \mathbb{E}^N \).</p>
-
 <p>Let&rsquo;s consider an isometric mapping from a graph with a path distance metric
 to \(N\)-dimensional euclidean space for instance:
 \( f: G \rightarrow \mathbb{E}^N \).
@@ -101,28 +93,20 @@ So, if we had such an isometry \( f: G \rightarrow \mathbb{E}^N \), we would hav
 between \(v, w\) in our original graph \(G\), just by computing the distances of the images \(f(v), f(w)\) in
 \(\mathbb{E}^N\). If our mapping is efficient this operation would be in \( \mathcal{O}(N) \) which is efficient as long as the dimension
 can be kept small.</p>
-
 <h2 id="the-problem-with-euclidean-space">The Problem with Euclidean Space</h2>
-
 <p>The tough truth about isometrically
 embedding graphs into euclidean space, however, is that there are simple counterexamples of graphs which
 don&rsquo;t permit an isometric embedding into any \(N\)-dimensional euclidean space.</p>
-
 <h3 id="counterexamples">Counterexamples</h3>
-
 <h4 id="cycle-of-order-four">Cycle of Order Four</h4>
-
 <p>One of these counterexamples is the undirected
 cycle of order \(4\),
 \(C_4\), i.e. the cycle contains four
 vertices \(v_0, v_1, v_2, v_3\) such that there is an undirected edge between
 \(v_i\) and \(v_{i+1}\), as well as, between \(v_3\) and \(v_0\).</p>
-
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Circle_graph_C4.svg" alt="cycle of order 4" /></p>
-
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Circle_graph_C4.svg" alt="cycle of order 4"></p>
 <p>We now consider the unweighted path metric on \(C_4\), i.e. the weight of each edge is one, and
 the distance between any two vertices is just the number of edges in the shortest path between these vertices.</p>
-
 <p>The distance matrix for this metric can be easily verified to be the following:
 \[
 \begin{pmatrix} 0 &amp; 1 &amp; 2 &amp; 1 \\ 1 &amp; 0 &amp; 1 &amp; 2 \\ 2 &amp; 1 &amp; 0 &amp; 1 \\ 1 &amp; 2 &amp; 1 &amp; 0\end{pmatrix}.
@@ -131,58 +115,44 @@ Here the entry in row \( i \) and column \( j \) is the distance of \( v_i \) to
 We see, that there are only distances 1, 2 (and 0).
 Now, we want to show that there exists no \(4\) points in any euclidean space, which have
 the same distance matrix with respect to the euclidean distance.</p>
-
 <p>For this, we need
 <a href="https://en.wikipedia.org/wiki/Ptolemy%27s_inequality">Ptolemy&rsquo;s Inequality</a>
- which holds four any quadrilateral in any Euclidean Space.
+which holds four any quadrilateral in any Euclidean Space.
 It states:</p>
-
 <p>Given a quadrilateral with side lengths \(s_1, s_2, s_3, s_4\) and diagonals \(d_1, d_2\), then</p>
-
 <p>\[s_1s_3 + s_2s_4 \geq d_1 d_2\].</p>
-
 <p>In our case, we would take the images \(f(v_0), f(v_1), f(v_2), f(v_3) \) as the four
 vertices of the quadrilateral.
 Then the side lengths \(s_i\) have to be all one, because the edges have weight 1.
 The diagonals on the other hand need to have length 2.</p>
-
 <p>Thus the inequality becomes:</p>
-
 <p>\[
 s_1s_3 + s_2s_4 = 1\cdot1 + 1\cdot1 = 2 \geq 4 = 2\cdot2 = d_1 d_2
 \].</p>
-
 <p>This is an obvious contradiction, hence there can&rsquo;t be an isometric embedding of
 \(C_4\) into any euclidean space.</p>
-
 <h4 id="star-with-three-rays">Star with Three Rays</h4>
-
 <p>Another counterexample is the star with three rays,
 \( K_{1, 3} \).
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Star_graphs.svg" alt="star graphs with 3, 4, 5 and 6 rays" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Star_graphs.svg" alt="star graphs with 3, 4, 5 and 6 rays">
 It has one center vertex \( v_0 \) which is connected to three outer vertices
 \( v_1, v_2, v_3 \) and otherwise
 there are no edges.</p>
-
 <p>Now, again we have only distances 1, 2 (and 0) when we consider the hop-metric.
 Let&rsquo;s consider the images of the star vertices under a hypothetical isometry</p>
-
 <p>\[
 f: K_{1, 3} \rightarrow \mathbb{E}^N
 \].</p>
-
 <p>We must have \( |f(v_0) - f(v_i) |_2 = 1 \) for \( i \in {1, 2, 3} \), as well as
 \(
 | f(v_i) - f(v_j) |_2 = 2
 \), for \( i \neq j \in {1, 2, 3} \).</p>
-
 <p>In euclidean space we also have the triangular inequality:
 \[
 | f(v_i) - f(v_j) |_2 \leq | f(v_i) - f(v_0) |_2 + | f(v_0) - f(v_j) |_2.
 \]
 In fact in our case, the triangular inequalities become equalities. This can only happen,
 if \( f(v_i), f(v_j), f(v_0) \) are collinear, i.e. on a line.</p>
-
 <p>More specifically, we must even have \( f(v_0) = \frac{f(v_i) + f(v_j)}{2} \).
 But this has to hold for all \( i \neq j \) which are not \( 0 \).
 Hence we ge for instance
@@ -195,12 +165,9 @@ Subtracting \( \frac{f(v_2)}{2} \) on the outer-left and outer right, we get
 \]
 which means that the images of \(v_1, v_3\) have to be equal and have distance \(0\).
 This can&rsquo;t be, so there can&rsquo;t be an isometry from \( K_{1, 3} \) to any euclidean space.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>We have seen the appeal of embedding graphs isometrically into euclidean space. However,
 there are simple examples of graphs which can&rsquo;t possibly embedded into euclidean space.</p>
-
 <p>Now, there are some fixes for that. The most popular one seems to be to try to
 <a href="http://hyperbolicdeeplearning.com/poincare-glove/">embed graphs into hyperbolic space</a>.
 I will try to follow up in a future post with a different solution though, which is the so called
@@ -276,7 +243,7 @@ I will try to follow up in a future post with a different solution though, which
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>

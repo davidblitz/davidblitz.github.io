@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>BlitzBlog</title>
@@ -7,10 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate>
-    
-	<atom:link href="https://davidblitz.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 29 Dec 2021 11:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Conjecture on Bohemian Matrices</title>
+      <link>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</guid>
+      <description>In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &amp;ldquo;open&amp;rdquo;.
+Bohemian matrices are just matrices with all entries being integers.
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.</description>
+    </item>
     
     <item>
       <title>The Power Transform of Graphs</title>
@@ -50,7 +57,7 @@ import pandas as pd import seaborn as sns .</description>
       
       <guid>https://davidblitz.github.io/2016/08/09/2016-08-09-bankers-rounding/</guid>
       <description>Let&amp;rsquo;s talk about rounding! I challenge you to type in the following in a Python3 REPL and not be surprised:
-round(41.5) round(42.5)  &amp;hellip; I thought so!
+round(41.5) round(42.5) &amp;hellip; I thought so!
 In the following, I wanna first give an intuitive explanation of this so called &amp;ldquo;Banker&amp;rsquo;s Rounding&amp;rdquo; method and then give some examples where this Rounding Method is of some use.
 An Intuitive Explanation As you might have guessed, Banker&amp;rsquo;s Rounding always rounds a real number r to the next even number whenever there is two equally distant integers a, a+1 next to r, i.</description>
     </item>
@@ -63,7 +70,7 @@ An Intuitive Explanation As you might have guessed, Banker&amp;rsquo;s Rounding 
       <guid>https://davidblitz.github.io/2016/08/01/2016-08-01-for-expressions/</guid>
       <description>In my opinion, the for-keyword in Scala stands out among its analogues in other programming languages. This is, because it translates each so called generator in the brackets following the for-keyword into a function call and doesn&amp;rsquo;t technically loop through some body. This being said, we are going to discuss first the, in my opinion, misnamed for-loops.
 For-Loops Let&amp;rsquo;s consider the simple expression
-for( x &amp;lt;- list) println(x)  this will be translated by the Scala compiler to</description>
+for( x &amp;lt;- list) println(x) this will be translated by the Scala compiler to</description>
     </item>
     
     <item>
@@ -72,8 +79,8 @@ for( x &amp;lt;- list) println(x)  this will be translated by the Scala compiler
       <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/07/17/2016-07-17-erastothenes-sieve/</guid>
-      <description>It turns out that you can implement the core of Erastothenes&amp;rsquo; Sieve in one line of Scala code:
-def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0))  (btw the #:: sign is for prepending an element to a Stream[T] object)
+      <description>It turns out that you can implement the core of Erastothenes&#39; Sieve in one line of Scala code:
+def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0)) (btw the #:: sign is for prepending an element to a Stream[T] object)
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&amp;rsquo;s &amp;gt; 1. But this is not verbose at all:</description>
     </item>
     

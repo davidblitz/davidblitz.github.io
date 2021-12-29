@@ -9,7 +9,7 @@
  A visitor basically walks through (visits) all or just part of the memberfields of an object and then through the memberfields of the memberfields and so on.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.53" />
+        <meta name="generator" content="Hugo 0.89.4" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="The Visitor Pattern">
@@ -38,10 +38,6 @@
                             </h1>
                         
                         <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
-                        
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
-                                <i class="fa fa-twitter"></i>
-                            </a>
                         
                         
                         
@@ -84,93 +80,67 @@
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    
-
-<p>So recently, I came across the visitor pattern. As I learned, it is a way to extend an object with methods after the class of said object has been compiled. Or more fundamentally, as Wikipedia puts it -</p>
-
+    <p>So recently, I came across the visitor pattern. As I learned, it is a way to extend an object with methods after the class of said object has been compiled. Or more fundamentally, as Wikipedia puts it -</p>
 <blockquote>
 <p>[it is] a way of separating an algorithm from an object structure on which it operates.</p>
 </blockquote>
-
 <p>A visitor basically walks through (visits) all  or just part of the memberfields of an object and then through the memberfields of the memberfields and so on. At each visit it performs an action depending on the type of the memberfield.</p>
-
 <h2 id="example">Example</h2>
-
 <p>We begin by writing a simple binary tree structure.
 The tree consists of internal nodes and leaves which are both subclasses of an abstract node class. An internal node has a left child and a right child as members. A leaf&rsquo;s only member is an integer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> visitabletree
 
-<pre><code class="language-scala">package visitabletree
+<span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">def</span> accept<span style="color:#f92672">(</span>v<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Visitor</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span>
+<span style="color:#f92672">}</span>
 
-abstract class Node {
-  def accept(v: Visitor): Unit
-}
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InternalNode</span><span style="color:#f92672">(</span>left<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Node</span><span style="color:#f92672">,</span> right<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Node</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">def</span> leftChild <span style="color:#66d9ef">=</span> left
+  <span style="color:#66d9ef">def</span> rightChild <span style="color:#66d9ef">=</span> right
+  <span style="color:#66d9ef">def</span> accept<span style="color:#f92672">(</span>v<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Visitor</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">.</span>visit<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
 
-case class InternalNode(left: Node, right: Node) extends Node {
-  def leftChild = left
-  def rightChild = right
-  def accept(v: Visitor): Unit = v.visit(this)
-}
-
-case class LeafNode(value: Int) extends Node {
-  def leafValue: Int = this.value
-  def accept(v: Visitor): Unit = v.visit(this)
-}
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LeafNode</span><span style="color:#f92672">(</span>value<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Node</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">def</span> leafValue<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span>value
+  <span style="color:#66d9ef">def</span> accept<span style="color:#f92672">(</span>v<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Visitor</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">.</span>visit<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
 
 
-trait Visitor {
-  def visit(node: InternalNode): Unit
-  def visit(node: LeafNode): Unit
-}
-</code></pre>
-
-<p>In order to make this tree &ldquo;visitable&rdquo;, we needed to add an accept method to InternalNode, LeafNode and Node, which accepts objects which implement the Visitor trait (which would be something like an interface in Java).
+<span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Visitor</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">def</span> visit<span style="color:#f92672">(</span>node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">InternalNode</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span>
+  <span style="color:#66d9ef">def</span> visit<span style="color:#f92672">(</span>node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">LeafNode</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In order to make this tree &ldquo;visitable&rdquo;, we needed to add an accept method to InternalNode, LeafNode and Node, which accepts objects which implement the Visitor trait (which would be something like an interface in Java).
 We will see why this is necessary after the next bit of code&hellip;</p>
-
 <p>Since we now are eager to find out the sum of the leaf integers of some trees and we don&rsquo;t want to recompile our Node classes which are quite fine, we start writing a visitor class for our node.</p>
-
 <p>As mentioned earlier, a visitor needs to perform an action for each object it visits. The structure of our classes more or less forces us to walk through the tree recursively, so the obvious actions for our visitor would be to save the value of a LeafNode in a mutable variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> visitabletree
 
-<pre><code class="language-scala">package visitabletree
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SumVisitor</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Visitor</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">var</span> result<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">_</span>
 
-class SumVisitor extends Visitor {
-  var result: Int = _
-
-  def visit(node: LeafNode): Unit =
-    result = node.leafValue
-...
-</code></pre>
-
-<p>For an InternalNode, on the other hand, we are going to get the result for the two child nodes and add them.</p>
-
+  <span style="color:#66d9ef">def</span> visit<span style="color:#f92672">(</span>node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">LeafNode</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span>
+    result <span style="color:#66d9ef">=</span> node<span style="color:#f92672">.</span>leafValue
+<span style="color:#f92672">...</span>
+</code></pre></div><p>For an InternalNode, on the other hand, we are going to get the result for the two child nodes and add them.</p>
 <p>In order to call the visit method on a child node we need the, up to now mysterious, accept method of the child nodes, like so</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#f92672">...</span>
+<span style="color:#66d9ef">def</span> visit<span style="color:#f92672">(</span>node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">InternalNode</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Unit</span> <span style="color:#f92672">=</span>
+  result <span style="color:#66d9ef">=</span> apply<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span>leftChild<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> apply<span style="color:#f92672">(</span>node<span style="color:#f92672">.</span>rightChild<span style="color:#f92672">)</span>
 
-<pre><code class="language-scala">...
-def visit(node: InternalNode): Unit =
-  result = apply(node.leftChild) + apply(node.rightChild)
-
-def apply(node: Node): Int = {
-  node.accept(this)
+<span style="color:#66d9ef">def</span> apply<span style="color:#f92672">(</span>node<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Node</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+  node<span style="color:#f92672">.</span>accept<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">)</span>
   result
-}
-</code></pre>
-
-<p>It becomes clear now that the accept method is a way to be able to call the right visit method depending on the type of the child node (leaf or internal). Notice that we need an extra apply function to get the result of the children.
- In case you didn&rsquo;t know: since our program will decide only at runtime which of the two visit methods to choose, we need a compiler feature called dynamic binding.</p>
-
+<span style="color:#f92672">}</span>
+</code></pre></div><p>It becomes clear now that the accept method is a way to be able to call the right visit method depending on the type of the child node (leaf or internal). Notice that we need an extra apply function to get the result of the children.
+In case you didn&rsquo;t know: since our program will decide only at runtime which of the two visit methods to choose, we need a compiler feature called dynamic binding.</p>
 <h2 id="variants-of-the-visitor-pattern">Variants of the Visitor pattern</h2>
-
 <p>In my opinion, there are two main variants to define a visitor pattern depending on where the actual logic for walking through the data structure is defined: In the above example, this responsibility was placed on the visitor, since we actually called the accept method of the children in the visit(:InternalNode) method.</p>
-
 <p>I&rsquo;ve seen an implementation of the visitor pattern where the data structures where providing also the algorithms for walking through. This was great for implementing new visitors but looked quite convoluted on the &ldquo;visitable side&rdquo;.</p>
-
 <h2 id="outlook-and-question">Outlook and Question</h2>
-
 <p>Not only is the visitor pattern just cool stuff, it also seems to have theoretical importance as a partial solution to the so called &ldquo;Expression Problem&rdquo;.</p>
-
 <p>Finally, a question that kind of bugged me when preparing this post is the following: Is there a similar pattern which is purely functional and doesn&rsquo;t make use of mutable variables (like the result field in the SumVisitor).</p>
-
 <h2 id="further-reading">Further Reading</h2>
-
 <ul>
 <li>&ldquo;The Essence of the Visitor Pattern&rdquo;, Jens Palsberg, C.Barry Jay</li>
 <li>&ldquo;Independently Extensible Solutions to the Expression Problem&rdquo;, Matthias Zenger, Martin Odersky</li>
@@ -228,7 +198,7 @@ def apply(node: Node): Int = {
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on BlitzBlog</title>
@@ -7,13 +7,99 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate>
-    
-	<atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 29 Dec 2021 11:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>acyclic</title>
+      <link>https://davidblitz.github.io/tags/acyclic/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/acyclic/</guid>
+      <description></description>
+    </item>
     
     <item>
-      <title>Embedding</title>
+      <title>bohemian</title>
+      <link>https://davidblitz.github.io/tags/bohemian/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/bohemian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conjecture</title>
+      <link>https://davidblitz.github.io/tags/conjecture/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/conjecture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DAG</title>
+      <link>https://davidblitz.github.io/tags/dag/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/dag/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matrices</title>
+      <link>https://davidblitz.github.io/tags/matrices/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multidigraph</title>
+      <link>https://davidblitz.github.io/tags/multidigraph/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/multidigraph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nilpotent</title>
+      <link>https://davidblitz.github.io/tags/nilpotent/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/nilpotent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oeis</title>
+      <link>https://davidblitz.github.io/tags/oeis/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/oeis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>open</title>
+      <link>https://davidblitz.github.io/tags/open/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/open/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>proof</title>
+      <link>https://davidblitz.github.io/tags/proof/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/proof/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>embedding</title>
       <link>https://davidblitz.github.io/tags/embedding/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -22,7 +108,7 @@
     </item>
     
     <item>
-      <title>Euclidean</title>
+      <title>euclidean</title>
       <link>https://davidblitz.github.io/tags/euclidean/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -31,7 +117,7 @@
     </item>
     
     <item>
-      <title>Graphs</title>
+      <title>graphs</title>
       <link>https://davidblitz.github.io/tags/graphs/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -40,7 +126,7 @@
     </item>
     
     <item>
-      <title>Isometry</title>
+      <title>isometry</title>
       <link>https://davidblitz.github.io/tags/isometry/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -49,7 +135,7 @@
     </item>
     
     <item>
-      <title>Metric</title>
+      <title>metric</title>
       <link>https://davidblitz.github.io/tags/metric/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -58,7 +144,7 @@
     </item>
     
     <item>
-      <title>Power Transform</title>
+      <title>power-transform</title>
       <link>https://davidblitz.github.io/tags/power-transform/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       
@@ -67,7 +153,7 @@
     </item>
     
     <item>
-      <title>Space</title>
+      <title>space</title>
       <link>https://davidblitz.github.io/tags/space/</link>
       <pubDate>Fri, 03 Jul 2020 16:00:29 +0100</pubDate>
       

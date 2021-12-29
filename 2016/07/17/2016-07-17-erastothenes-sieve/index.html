@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>One Liners in Scala - The Sieve of Erastothenes &middot; David Blitz</title>
-        <meta name="description" content="It turns out that you can implement the core of Erastothenes&rsquo; Sieve in one line of Scala code:
-def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0))  (btw the #:: sign is for prepending an element to a Stream[T] object)
+        <meta name="description" content="It turns out that you can implement the core of Erastothenes&#39; Sieve in one line of Scala code:
+def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0)) (btw the #:: sign is for prepending an element to a Stream[T] object)
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&rsquo;s &gt; 1. But this is not verbose at all:">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.53" />
+        <meta name="generator" content="Hugo 0.89.4" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="One Liners in Scala - The Sieve of Erastothenes">
-<meta property="og:description" content="It turns out that you can implement the core of Erastothenes&rsquo; Sieve in one line of Scala code:
-def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0))  (btw the #:: sign is for prepending an element to a Stream[T] object)
+<meta property="og:description" content="It turns out that you can implement the core of Erastothenes&#39; Sieve in one line of Scala code:
+def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0)) (btw the #:: sign is for prepending an element to a Stream[T] object)
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&rsquo;s &gt; 1. But this is not verbose at all:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2016/07/17/2016-07-17-erastothenes-sieve/">
@@ -38,10 +38,6 @@ Now, I cheated a bit and you still have to call the sieve function with a stream
                             </h1>
                         
                         <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
-                        
-                            <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/david_blitz1">
-                                <i class="fa fa-twitter"></i>
-                            </a>
                         
                         
                         
@@ -84,25 +80,18 @@ Now, I cheated a bit and you still have to call the sieve function with a stream
         <div class="post-content clearfix" itemprop="articleBody">
     
 
-    <p>It turns out that you can implement the core of <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Erastothenes&rsquo; Sieve</a>
+    <p>It turns out that you can implement the core of <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Erastothenes' Sieve</a>
 in one line of Scala code:</p>
-
-<pre><code class="language-scala">def sieve(stream: Stream[Int]): Stream[Int] =
-  stream.head #:: sieve(stream.tail.filter(k =&gt; k%sieve.head != 0))
-</code></pre>
-
-<p>(btw the #:: sign is for prepending an element to a Stream[T] object)</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> sieve<span style="color:#f92672">(</span>stream<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Stream</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">])</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Stream</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span>
+  stream<span style="color:#f92672">.</span>head <span style="color:#f92672">#</span><span style="color:#66d9ef">:</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">sieve</span><span style="color:#f92672">(</span><span style="color:#66d9ef">stream.tail.filter</span><span style="color:#f92672">(</span><span style="color:#66d9ef">k</span> <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">k%sieve.head</span> <span style="color:#66d9ef">!=</span> <span style="color:#960050;background-color:#1e0010">0</span><span style="color:#f92672">))</span>
+</code></pre></div><p>(btw the #:: sign is for prepending an element to a Stream[T] object)</p>
 <p>Now, I cheated a bit and you still have to call the sieve function with a
 stream of all Int&rsquo;s &gt; 1. But this is not verbose at all:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> from<span style="color:#f92672">(</span>n<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Stream</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Int</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span>
+  n <span style="color:#f92672">#</span><span style="color:#66d9ef">:</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">from</span><span style="color:#f92672">(</span><span style="color:#66d9ef">n+</span><span style="color:#960050;background-color:#1e0010">1</span><span style="color:#f92672">)</span>
 
-<pre><code class="language-scala">def from(n: Int): Stream[Int] =
-  n #:: from(n+1)
-
-sieve(from(2))
-</code></pre>
-
-<p>So after all, it turns out that we need five lines really. But I hope you will
+<span style="color:#66d9ef">sieve</span><span style="color:#f92672">(</span><span style="color:#66d9ef">from</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">2</span><span style="color:#f92672">))</span>
+</code></pre></div><p>So after all, it turns out that we need five lines really. But I hope you will
 agree that this implementation of <em>The Sieve</em> is very elegant.</p>
 
 </div>
@@ -157,7 +146,7 @@ agree that this implementation of <em>The Sieve</em> is very elegant.</p>
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2020 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>

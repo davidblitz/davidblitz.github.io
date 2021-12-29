@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>acyclic on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/acyclic/</link>
+    <description>Recent content in acyclic on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Wed, 29 Dec 2021 11:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/acyclic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Conjecture on Bohemian Matrices</title>
+      <link>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</link>
+      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</guid>
+      <description>In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &amp;ldquo;open&amp;rdquo;.
+Bohemian matrices are just matrices with all entries being integers.
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.</description>
+    </item>
+    
+  </channel>
+</rss>

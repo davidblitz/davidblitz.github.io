@@ -1,17 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Euclidean on BlitzBlog</title>
+    <title>euclidean on BlitzBlog</title>
     <link>https://davidblitz.github.io/tags/euclidean/</link>
-    <description>Recent content in Euclidean on BlitzBlog</description>
+    <description>Recent content in euclidean on BlitzBlog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate>
-    
-	<atom:link href="https://davidblitz.github.io/tags/euclidean/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 03 Jul 2020 16:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/euclidean/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Power Transform of Graphs</title>
       <link>https://davidblitz.github.io/2020/07/03/2020-01-02-power-transform/</link>
