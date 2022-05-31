@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.449">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>graph-mcmc</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="2022-05-31-graph-mcmc_files/libs/clipboard/clipboard.min.js"></script>
+<script src="2022-05-31-graph-mcmc_files/libs/quarto-html/quarto.js"></script>
+<script src="2022-05-31-graph-mcmc_files/libs/quarto-html/popper.min.js"></script>
+<script src="2022-05-31-graph-mcmc_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="2022-05-31-graph-mcmc_files/libs/quarto-html/anchor.min.js"></script>
+<link href="2022-05-31-graph-mcmc_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="2022-05-31-graph-mcmc_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="2022-05-31-graph-mcmc_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="2022-05-31-graph-mcmc_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="2022-05-31-graph-mcmc_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<p>+++ title = “Uniformly Drawing from A Set Of Connected Graphs Without Knowing The Whole Set” description = “” author = “David Blitz” date = 2022-05-31T00:00:29+01:00 tags = [“graph”, “connected”, “uniform”, “distribution”, “mcmc”, “oeis”, “metropolis-hastings”, “markov chain monte carlo”, “non-isomorphic”] draft = “True” +++</p>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Imagine wanting to empirically compute a <a href="https://en.wikipedia.org/wiki/Statistic">statistic</a> on <a href="https://en.wikipedia.org/wiki/Connectivity_%28graph_theory%29">connected graphs</a>. The set of non-isomorphic connected graphs on a given number of nodes becomes huge <a href="https://oeis.org/A001349">very quickly</a>. This is visualized in the following plot with logarithmic y-axis:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/images/2022-05-31-number_of_connected_graphs.svg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">plot of number of connected graphs vs number of nodes</figcaption><p></p>
+</figure>
+</div>
+<p>This is why computing your statistic for every possible graph becomes quickly infeasible and you might want to resort to random sampling instead. Unfortunately, at least my favorite python package for graphs, <a href="https://networkx.org/documentation/stable/reference/generators.html">networkx</a>, does not provide any method to uniformly sample from the set of connected graphs with <span class="math inline">\(n\)</span> nodes.</p>
+</section>
+<section id="a-potential-solution" class="level2">
+<h2 class="anchored" data-anchor-id="a-potential-solution">A Potential Solution</h2>
+<p>In order to draw from the set of non-isomorphic simple graphs on <span class="math inline">\(n\)</span> vertices uniformly, I am going to use the Metropolis-Hastings Algorithm as described in <a href="https://bookdown.org/rdpeng/advstatcomp/metropolis-hastings.html">this book by Roger D. Peng</a> for instance.</p>
+<p>The Metropolis-Hastings Algorithm is more like a template which one can use to approximate a desired target distribution given an available proposal distribution. Specifically, the algorithm needs access to the conditional proposal distribution <span class="math inline">\(q(y | x)\)</span> and a ratio <span class="math inline">\(\frac{p(y)}{p(x)}\)</span> where <span class="math inline">\(p(\cdot)\)</span> is the desired target distribution. Its output converges to a sample-set from the target distribution <span class="math inline">\(p(\cdot)\)</span>, if you let the algorithm run for <em>enough</em> iterations. Finding out when we have run <em>enough</em> iterations is out of scope for this post, however.</p>
+<p>In the discussed problem setting, the target distribution <span class="math inline">\(p(\cdot)\)</span> is the uniform distribution on the set of all non-isomorphic, connected simple graphs on <span class="math inline">\(n\)</span> vertices. I am going to call this set <span class="math inline">\(\mathcal{G}_n\)</span> in the following. Since <span class="math inline">\(p(G) = p(G')\)</span> for all graphs <span class="math inline">\(G, G' \in \mathcal{G}_n\)</span>, the ratio <span class="math inline">\(\frac{p(G')}{p(G)}\)</span> just equals <span class="math inline">\(1\)</span>.</p>
+<p>Now, we need to choose a conditional proposal distribution <span class="math inline">\(q(G' | G)\)</span>. This is basically a transition rule to randomly choose a neighbouring graph <span class="math inline">\(G'\)</span> for a given graph <span class="math inline">\(G\)</span>. The transition rule needs to fulfill the condition that we can reach any graph <span class="math inline">\(H\)</span> from any graph <span class="math inline">\(G\)</span> with a series of intermediate graphs <span class="math inline">\(G_1, \dots, G_k\)</span> such that <span class="math inline">\(q(G_1 | G), \dots q(G_{i+1} | G_i), \dots, q(H | G_k) &gt; 0\)</span>.</p>
+<p>I chose a straightforward conditional proposal distribution <span class="math inline">\(q(G' | G)\)</span> by creating a list <span class="math inline">\(\mathcal{N}(G)\)</span> of neighbouring graphs of <span class="math inline">\(G\)</span> and taking a uniformly random <span class="math inline">\(G'\)</span> from this list. The neighbor list, <span class="math inline">\(\mathcal{N}(G)\)</span>, is defined by iterating through all unordered pairs of vertices <span class="math inline">\(e = \{ v, w \}\)</span> and checking if they are an edge of <span class="math inline">\(G\)</span> or not. If <span class="math inline">\(\{ v, w \}\)</span> is not an edge of <span class="math inline">\(G\)</span>, we just add <span class="math inline">\(G + e\)</span> to the list <span class="math inline">\(\mathcal{N}(G)\)</span>. If <span class="math inline">\(e\)</span> is an edge of <span class="math inline">\(G\)</span> however, we first check if <span class="math inline">\(G - e\)</span> is connected. If <span class="math inline">\(G - e\)</span> is connected, we add it to <span class="math inline">\(\mathcal{N}(G)\)</span>. If <span class="math inline">\(G - e\)</span> is not connected, we just ignore it. Here we used the shorthand <span class="math inline">\(G + e\)</span> to denote the graph <span class="math inline">\(G\)</span> with edge <span class="math inline">\(e\)</span> added to it and <span class="math inline">\(G - e\)</span> with edge <span class="math inline">\(e\)</span> removed from it. In a last step, we filter <span class="math inline">\(\mathcal{N}(G)\)</span> such that it contains only non-isomorphic graphs.</p>
+<p>With these choices, the Metropolis-Hastings Algorithm looks as follows:</p>
+<ol type="1">
+<li>Initialize the list of samples <span class="math inline">\(S \leftarrow \emptyset\)</span></li>
+<li>Initialize <span class="math inline">\(G\)</span>.</li>
+<li>Uniformly draw a graph <span class="math inline">\(G'\)</span> from <span class="math inline">\(\mathcal{N}(G)\)</span></li>
+<li>Compute the acceptance ratio <span class="math inline">\(\alpha \leftarrow \min( \frac{|\mathcal{N}(G)|}{|\mathcal{N}(G')|}, 1)\)</span></li>
+<li>Uniformly draw a rational number <span class="math inline">\(u\)</span> from the interval <span class="math inline">\([0, 1]\)</span></li>
+<li>If <span class="math inline">\(u \leq \alpha\)</span> set <span class="math inline">\(G \leftarrow G'\)</span></li>
+<li>Add <span class="math inline">\(G\)</span> to the list <span class="math inline">\(S\)</span></li>
+<li>After <em>enough</em> iterations return <span class="math inline">\(S\)</span> - otherwise go to step 3.</li>
+</ol>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>So far we have seen an idea for an instantiation of the Metropolis-Hastings Method to sample uniformly from the connected graphs on a given number of vertices. From here, I see two ways to test the idea. The first one would be to somewhat become an expert on MCMC and produce formal proofs that the method is working well, i.e.&nbsp;that my proposal distribution is indeed usable for Metropolis-Hastings and then give asymptotic convergence rates. The second way to test the idea would be to just code up the idea and see if it gives promising experimental results on small graphs. In the spirit of <a href="https://gregorygundersen.com/blog/2020/08/05/antifragile-ideas/">testing ideas quickly</a>, I want to explore my experimental results in a follow-up post.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

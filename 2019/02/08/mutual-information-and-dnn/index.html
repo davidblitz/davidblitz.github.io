@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Visualizing Deep Neural Networks via Mutual Information &middot; David Blitz</title>
+        <meta name="description" content="This is a presentation about the article on &ldquo;Opening the black box of Deep Neural Networks via Information&rdquo; by Tishby and Schwartz-Ziv (2017).The Information Bottleneck   Definition of Mutual Information: $$ I(X, Y) = \sum_{x, y} p(x, y)\text{log}\frac{p(x,y)}{p(x)p(y)} $$
+  Properties of MI: $$ I(X, Y) = H(X) - H(X \mid Y) $$
+  We can also write the conditional entropy on the RHS as: $$ H(X | Y) = \mathbb{E}_y [H(X | y)].">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.98.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Visualizing Deep Neural Networks via Mutual Information">
+<meta property="og:description" content="This is a presentation about the article on &ldquo;Opening the black box of Deep Neural Networks via Information&rdquo; by Tishby and Schwartz-Ziv (2017).The Information Bottleneck   Definition of Mutual Information: $$ I(X, Y) = \sum_{x, y} p(x, y)\text{log}\frac{p(x,y)}{p(x)p(y)} $$
+  Properties of MI: $$ I(X, Y) = H(X) - H(X \mid Y) $$
+  We can also write the conditional entropy on the RHS as: $$ H(X | Y) = \mathbb{E}_y [H(X | y)].">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidblitz.github.io/2019/02/08/mutual-information-and-dnn/">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                            </h1>
+                        
+                        <a class="button-square" href="https://davidblitz.github.io/index.xml"><i class="fa fa-rss"></i></a>
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" title="Github" href="https://github.com/davidblitz">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Visualizing Deep Neural Networks via Mutual Information</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2019-02-08" itemprop="datePublished">Fri, Feb 8, 2019</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
+            </span>
+        </span>
+    </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>This is a presentation about the article on
+<!-- raw HTML omitted -->&ldquo;Opening the
+black box of Deep Neural Networks via Information&rdquo; by Tishby and Schwartz-Ziv (2017).<!-- raw HTML omitted --></p>
+<h1 id="the-information-bottleneck">The Information Bottleneck</h1>
+<ul>
+<li>
+<p>Definition of Mutual Information:
+$$
+I(X, Y) = \sum_{x, y} p(x, y)\text{log}\frac{p(x,y)}{p(x)p(y)}
+$$</p>
+</li>
+<li>
+<p>Properties of MI:
+$$
+I(X, Y) = H(X) - H(X \mid Y)
+$$</p>
+</li>
+</ul>
+<p>We can also write the conditional entropy on the RHS as:
+$$
+H(X | Y) = \mathbb{E}_y [H(X | y)].
+$$</p>
+<p>Hence we see that mutual information becomes smaller the more peaked the conditional distribution of \(X\) is for any given \(y\).</p>
+<ul>
+<li>
+<p>In machine learning we are considering representations \(Z\) of the input \(X\) and the task \(Y\), i.e. the Markov chain:
+$$
+Y \rightarrow X \rightarrow Z
+$$</p>
+</li>
+<li>
+<p>Desirable properties of a representation \(Z\):</p>
+<ol>
+<li>
+<p>Sufficiency: \(I(Z, Y) = I(X, Y)\)</p>
+</li>
+<li>
+<p>Minimality: \(I(X, Z) \rightarrow \text{min}\), where we minimize over all <em>sufficient</em> \(Z\)</p>
+</li>
+<li>
+<p>Invariance to nuisances: \(N \perp Y \Rightarrow I(N, Z) = 0\)</p>
+</li>
+<li>
+<p>Independent components: \(\text{TC}(Z) = \text{KL}\big(p(Z), \prod_i p(Z_i)\big) = 0\)</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>It turns out
+<!-- raw HTML omitted -->see Achille, Soatto, 2017<!-- raw HTML omitted -->
+that Sufficiency and Minimality imply the other two properties.
+We try to achieve a relaxed version of 1. and 2. by optimizing the Information Bottleneck Lagrangian
+over all distributions of \(Z\):
+$$
+\mathcal{L}(Z, \beta; X, Y) = I(X, Z) - \beta I(Z, Y) \rightarrow \text{min}.
+$$</p>
+<p>This was first proposed by in <!-- raw HTML omitted -->this paper by Tishby, Pereira &amp; Bialek from 2000<!-- raw HTML omitted -->.
+The solution to this optimization is given by the following three equations:</p>
+<ol>
+<li>
+<p>\( p(z \mid x) = \frac{p(z)}{N(\beta; x)} \text{exp}
+\big( -\beta \text{KL}(p(y \mid x) \mid\mid p(y \mid z))\big) \), where \(N(\beta; x)\) is a normalization constant.</p>
+</li>
+<li>
+<p>\( p(z) = \sum_x p(z \mid x) p(x) \)</p>
+</li>
+<li>
+<p>\( p(y \mid z) = \sum_x p(y \mid x) p(x \mid t) \)</p>
+</li>
+</ol>
+<p>They can be solved via an algorithm by Arimoto and Blahut.
+These equations are satisfied along the so called <em>information curve</em>, which is
+monotonic, concave and separates the achievable region under the curve and the
+impossible region above the curve in the <em>information plane/quadrant</em>. [Tishby and Schwartz-Ziv write this in the paper but I couldn&rsquo;t find a source for this, yet]</p>
+<h1 id="mutual-information-in-dnn">Mutual Information in DNN</h1>
+<ul>
+<li>
+<p>Tishby and Schwartz-Ziv consider DNN layers as well as input and task as random variables or more precisely as a Markov Chain:
+$$
+Y \rightarrow X \rightarrow Z_1 \rightarrow \cdots \rightarrow Z_L \rightarrow \hat{Y}
+$$</p>
+</li>
+<li>
+<p>The layers can be visualized as points in the information plane with coordinates
+$$
+I(X, Z) \text{ and } I(Z, Y), Z \in \{Z_1, \dots, Z_L, \hat{Y} \}
+$$</p>
+</li>
+<li>
+<p>In this context we notice how the Data Process Inequality applies to the hidden layers: For a Markov Chain
+$$
+Y \rightarrow X \rightarrow Z
+$$
+we have
+$$
+I(Y, X) \geq I(Y, Z)
+$$</p>
+</li>
+<li>
+<p>Hence in a DNN we have:
+$$
+I(Y, X) \geq I(Y, Z_1) \geq \cdots \geq I(Y, Z_L) \geq I(Y, \hat{Y})
+$$
+and
+$$
+H(X) \geq I(X, Z_1) \geq \cdots \geq I(X, Z_L) \geq I(X, \hat{Y})
+$$</p>
+</li>
+<li>
+<p>Here we already get a hint that deeper layers compress better [ELABORATE!]</p>
+</li>
+<li>
+<p>Another important property of Mutual Information is reparametrization invariance:
+for bijections \(\phi\), \(\psi\), we have
+$$
+I(X, Y) = I(\phi(X), \psi(Y))
+$$</p>
+</li>
+</ul>
+<p>This seems like bad news, because vanilla DNN work with deterministic functions and finite <em>discrete</em> input \(X\).
+Hence applying functions like flipping bits will not change the Mutual Information but from experience we know that it will be impossible to learn this function. Hence Mutual Information can&rsquo;t give us the whole story.</p>
+<h1 id="questions-for-dnn-visualizations-in-the-information-plane">Questions for DNN visualizations in the Information Plane</h1>
+<ol>
+<li>What are the Dynamics of learning hidden layers via SGD in the Information Plane?</li>
+<li>What is the effect of training sample size on the dynamics of the hidden layers?</li>
+<li>What are the benefits of hidden layers?</li>
+<li>What is the final location of the hidden layers?</li>
+<li>Do the hidden layers form optimal IB representations?</li>
+</ol>
+<h1 id="experimental-setup">Experimental Setup</h1>
+<ul>
+<li>
+<p>Network Architecture: up to seven hidden layers with widths
+$$
+12 - 10 - 7 - 5 - 4 - 3 - 2
+$$</p>
+</li>
+<li>
+<p>Inputs are 12-dimensional binary &ndash;&gt; 4096 possible inputs \(X\).</p>
+</li>
+<li>
+<p>The joint distribution \(p(X, Y)\) is calculated via a <em>spherically symmetric</em> function \(f(X)\).
+This is made into a stochastic rule through the sigmoidal function
+\(\psi(u) = \frac{1}{1 + \text{exp}(-\gamma u)}\) via:
+$$
+p(Y=1 | x) = \psi(f(X) - \theta).
+$$
+The threshold \(\theta\) is selected, such that
+$$
+p(Y = 1) = \sum_x p(y = 1 | x)p(x) \approx 0.5
+$$
+where \(p(x)\) is chosen to be uniform.
+The sigmoidal gain \(\gamma\) was high enough to keep the information
+$$
+I(X, Y) \approx 0.99.
+$$</p>
+</li>
+<li>
+<p>The experiment is repeated 50 times with different network initializations and training sets - sampled according to \(p(X, Y)\)</p>
+</li>
+<li>
+<p>Each time the network learns the rule via SGD and in each epoch we estimate
+\(I(X, Z_i)\) and \(I(Z_i, Y)\) for each hidden layer.</p>
+</li>
+</ul>
+<p>[Tishby and Ziv say that there is more information about \(f\) in <!-- raw HTML omitted -->this paper by Kazhdan et al.<!-- raw HTML omitted --> but I didn&rsquo;t follow the reference, yet.</p>
+<h1 id="mutual-information-estimation">Mutual Information Estimation</h1>
+<ul>
+<li>MI is estimated by binning the neurons outputs between -1 and 1 into 30 different bins and assuming a uniform distribution over the 4096 possíble inputs. Hence, we get \(p(X, Z_i)\) directly and \(p(Z_i, Y)\) via
+$$
+p(Z_i, Y) = \sum_x p(x, Y)p(Z_i | x),
+$$
+where we have used the Markov Chain
+$$
+Y \rightarrow X \rightarrow Z_i
+$$
+for every hidden layer.</li>
+</ul>
+<h1 id="two-optimization-phases">Two Optimization Phases</h1>
+<p>As we visualize the training phase, we observe a drift and a diffusion phase. During the latter, not
+only the MI between the layers and the task is optimized but also we observe compression of the input.
+<img src="/images/dnn-in-infoplane.png" alt="dnn-in-infoplane">
+This second phase is not directly explained by the cross-entropy loss, since no regularization is used.
+The transition also coincides with the norm of the mean of the gradient of the network being roughly the same
+as the standard deviation of the norm of the gradient.
+<img src="/images/stochastic-gradient.png" alt="stochastic-gradient.png">
+But an argument will be given, that this compression is due to the stochastic dynamics of the training method.</p>
+<h1 id="sgd-and-the-diffusion-phase">SGD and the diffusion Phase</h1>
+<p>Tisby argues that in the diffusion phase the standard deviation of the gradient dominates the mean. Hence, it behaves like a Wiener Process and can be described by a Focker-Planck equation [see e.g. Risken (1989)]. The stationary distribution of this equation maximizes the conditional entropy, \(H(X | Z_i)\), and thus minimizes the mutual information
+$$
+I(X, Z_i) = H(X) - H(X | Z_i).
+$$
+QUESTION: What determines the \(\beta\) of the limit points of the hidden layers?</p>
+<h1 id="computational-benefit-of-hidden-layers">Computational Benefit of Hidden Layers</h1>
+<p>By the dynamics of the diffusion equation, the number of training epochs is
+exponential in the resulting compression
+\(\Delta I_X\).
+Assuming that with $L$ hidden layers, each layer \(k\) compresses the previous layer further by
+\(\Delta I^k_X\). Then, total compression approximately breaks down into \(K\) smaller steps,
+\(\Delta I_X \approx \sum_k \Delta I^k_X \). Since
+$$
+\text{exp}(\sum_k \Delta I^k_X \gg \sum_k \text{exp} (\Delta I^k_X),
+$$
+we need exponentially (in \(K\) )  less epochs for training a deeper network to compress the
+input equally, (assuming that \(\Delta I^k_X\) are similar). At the same time, the number of computations
+needed for training the network grows linearly with the number of layers, so this
+exponentiall boost remains significant.</p>
+<h1 id="criticism">Criticism</h1>
+<ul>
+<li>See <!-- raw HTML omitted -->this discussion<!-- raw HTML omitted --></li>
+</ul>
+<h1 id="open-questions">Open Questions</h1>
+<ul>
+<li>
+<p>Can findings be reproduced with other rules and network architectures?</p>
+</li>
+<li>
+<p>Do the findings scale up to larger networks and real world problems?</p>
+</li>
+<li>
+<p>Can similar compression be observed in other models than DNN?</p>
+</li>
+<li>
+<p>What determines the \(\beta\) of the limit points of the hidden layers?</p>
+</li>
+<li>
+<p>Can the arguments in this paper, e.g. for SGD dynamics, be made more rigorous?</p>
+</li>
+<li>
+<p>What are the practical implications of the findings? [see Variational Information Bottleneck Paper]</p>
+</li>
+<li>
+<p>What happens in Bayesian Neural Networks or Random Forests?</p>
+</li>
+</ul>
+
+</div>
+
+        <footer class="post-footer clearfix">
+    
+        <p class="post-tags">
+            <span>Tagged:</span>
+            
+            
+                <a href="/tags/deep-learning/">deep learning</a>, 
+            
+                <a href="/tags/machine-learning/">machine learning</a>, 
+            
+                <a href="/tags/neural-networks/">neural networks</a>, 
+            
+                <a href="/tags/visualization/">visualization</a>, 
+            
+                <a href="/tags/dnn/">dnn</a>, 
+            
+                <a href="/tags/mutual-information/">mutual information</a>, 
+            
+                <a href="/tags/information-theory/">information theory</a>
+            
+        </p>
+    
+
+    <div class="share">
+        
+            <a class="icon-twitter" href="https://twitter.com/share?text=Visualizing%20Deep%20Neural%20Networks%20via%20Mutual%20Information&url=https%3a%2f%2fdavidblitz.github.io%2f2019%2f02%2f08%2fmutual-information-and-dnn%2f"
+                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                <i class="fa fa-twitter"></i>
+                <span class="hidden">Twitter</span>
+            </a>
+        
+
+        
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fdavidblitz.github.io%2f2019%2f02%2f08%2fmutual-information-and-dnn%2f"
+                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                <i class="fa fa-facebook"></i>
+                <span class="hidden">Facebook</span>
+            </a>
+        
+
+        
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fdavidblitz.github.io%2f2019%2f02%2f08%2fmutual-information-and-dnn%2f"
+              onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+              <i class="fa fa-google-plus"></i>
+                <span class="hidden">Google+</span>
+            </a>
+        
+        
+    </div>
+</footer>
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a title="BlitzBlog" href="https://davidblitz.github.io/">BlitzBlog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#">
+                        <i class="fa fa-angle-up"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        
+        
+        <script src="https://davidblitz.github.io/js/scripts.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    </body>
+</html>
+
