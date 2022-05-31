@@ -6,16 +6,16 @@
         <title>A Conjecture on Bohemian Matrices &middot; David Blitz</title>
         <meta name="description" content="In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &ldquo;open&rdquo;.
 Bohemian matrices are just matrices with all entries being integers.
-The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.">
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \(\{ 0, 1, 2 \} \) and of dimension \(n \times n \) is equal to the definition of the sequence A188457 of the OEIS.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.89.4" />
+        <meta name="generator" content="Hugo 0.98.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="A Conjecture on Bohemian Matrices">
 <meta property="og:description" content="In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &ldquo;open&rdquo;.
 Bohemian matrices are just matrices with all entries being integers.
-The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.">
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \(\{ 0, 1, 2 \} \) and of dimension \(n \times n \) is equal to the definition of the sequence A188457 of the OEIS.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/">
         <link rel="stylesheet" href="https://davidblitz.github.io/dist/styles.css">
@@ -82,15 +82,19 @@ The conjecture states that the number \( a(n) \) of nilpotent matrices with entr
 
     <p>In the past year, I found a short elementary proof of Conjecture 6 on <a href="http://www.bohemianmatrices.com/cpdb/">this website</a> on bohemian matrices which is currently still marked as &ldquo;open&rdquo;.</p>
 <p>Bohemian matrices are just matrices with all entries being integers.</p>
-<p>The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence <a href="https://oeis.org/A188457">A188457 of the OEIS</a>.</p>
+<p>The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \(\{ 0, 1, 2 \} \) and of dimension \(n \times n \) is equal
+to the definition of the sequence <a href="https://oeis.org/A188457">A188457 of the OEIS</a>.</p>
 <p>A nilpotent matrix is a matrix \(A\) such that there exists a natural number \(k\) such that
 \(A^k = 0\).</p>
 <p>According to a recent comment on the OEIS (from February 2021), the sequence A188457 is equal to the number of labeled acyclic \(2\)-multidigraphs with \(n\) vertices.</p>
 <p>A digraph is a graph with directed edges and a \(2\)-multidigraph allows for up to \(2\) directed edges with same source and target, i.e. it allows for up to \(2\) parallel edges.</p>
-<p>To prove the conjecture, we prove a bijective correspondence between nilpotent matrices with entries in \({0, 1, \dots, p }\) in dimension \(n\) and labeled acyclic \(p\)-multidigraphs with \(n\) vertices. Conjecture \(6\) is then covered by the special case \(p = 2\).</p>
+<p>To prove the conjecture, we prove a bijective correspondence between nilpotent matrices with entries in \(\{0, 1, \dots, p \}\) and of dimension \(n \times n\) on the one hand
+and
+labeled acyclic \(p\)-multidigraphs with \(n\) vertices on the other hand.
+Conjecture \(6\) is then covered by the special case \(p = 2\).</p>
 <p>The correspondence which we want to prove is given by adjacency matrices and we can see that as follows:
 Let \(A\) be an adjacency matrix of a \(p\)-multidigraph \(D\) whose vertices are labeled with the numbers \(1, \dots, n\).</p>
-<p>A \(p\)-multidigraph corresponds to an adjacency matrix with entries in \({ 0, 1, \dots, p }\).</p>
+<p>A \(p\)-multidigraph corresponds to an adjacency matrix with entries in \(\{ 0, 1, \dots, p \}\).</p>
 <p>Now, consider a natural power \(A^k\). The entry with indices \((i, j)\) of \(A^k\) counts the number of walks from \(i\) to \(j\) with exactly \(k\) steps
 (<a href="https://www.um.edu.mt/library/oar/bitstream/123456789/24439/1/powers%20of%20the%20adjacency%20matrix.pdf">proof</a>).</p>
 <p>So \(A\) is nilpotent if and only if the corresponding multidigraph, \(D\), doesn&rsquo;t contain any walks for some fixed length \(K \in \mathbb{N}\). But this is equivalent to the multidigraph, \(D\), being acyclic which finishes the proof.</p>
@@ -174,7 +178,7 @@ Let \(A\) be an adjacency matrix of a \(p\)-multidigraph \(D\) whose vertices ar
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -183,7 +187,7 @@ Let \(A\) be an adjacency matrix of a \(p\)-multidigraph \(D\) whose vertices ar
             </div>
         </footer>
 
-        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+	        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
         
         
@@ -191,8 +195,35 @@ Let \(A\) be an adjacency matrix of a \(p\)-multidigraph \(D\) whose vertices ar
         
         
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
     </body>
 </html>
 

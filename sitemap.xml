@@ -2,13 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://davidblitz.github.io/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/connected/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/distribution/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/graph/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/markov-chain-monte-carlo/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/mcmc/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/metropolis-hastings/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/non-isomorphic/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/oeis/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/post/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/uniform/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/2022/05/31/2022-05-31-graph-mcmc/</loc>
+    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+  </url><url>
     <loc>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</loc>
     <lastmod>2021-12-29T11:00:29+01:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/acyclic/</loc>
-    <lastmod>2021-12-29T11:00:29+01:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/</loc>
     <lastmod>2021-12-29T11:00:29+01:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/bohemian/</loc>
@@ -29,19 +65,10 @@
     <loc>https://davidblitz.github.io/tags/nilpotent/</loc>
     <lastmod>2021-12-29T11:00:29+01:00</lastmod>
   </url><url>
-    <loc>https://davidblitz.github.io/tags/oeis/</loc>
-    <lastmod>2021-12-29T11:00:29+01:00</lastmod>
-  </url><url>
     <loc>https://davidblitz.github.io/tags/open/</loc>
     <lastmod>2021-12-29T11:00:29+01:00</lastmod>
   </url><url>
-    <loc>https://davidblitz.github.io/post/</loc>
-    <lastmod>2021-12-29T11:00:29+01:00</lastmod>
-  </url><url>
     <loc>https://davidblitz.github.io/tags/proof/</loc>
-    <lastmod>2021-12-29T11:00:29+01:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/tags/</loc>
     <lastmod>2021-12-29T11:00:29+01:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/embedding/</loc>

@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Wed, 29 Dec 2021 11:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 May 2022 00:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uniformly Drawing from A Set Of Connected Graphs Without Knowing The Whole Set</title>
+      <link>https://davidblitz.github.io/2022/05/31/2022-05-31-graph-mcmc/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/2022/05/31/2022-05-31-graph-mcmc/</guid>
+      <description>The Problem Imagine wanting to empirically compute a statistic on connected graphs. The set of non-isomorphic connected graphs on a given number of nodes becomes huge very quickly. This is visualized in the following plot with logarithmic y-axis:
+This is why computing your statistic for every possible graph becomes quickly infeasible and you might want to resort to random sampling instead. Unfortunately, at least my favorite python package for graphs, networkx, does not provide any method to uniformly sample from the set of connected graphs with $n$ nodes.</description>
+    </item>
+    
     <item>
       <title>A Conjecture on Bohemian Matrices</title>
       <link>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</link>
@@ -16,7 +26,7 @@
       <guid>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</guid>
       <description>In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &amp;ldquo;open&amp;rdquo;.
 Bohemian matrices are just matrices with all entries being integers.
-The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.</description>
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \(\{ 0, 1, 2 \} \) and of dimension \(n \times n \) is equal to the definition of the sequence A188457 of the OEIS.</description>
     </item>
     
     <item>
@@ -79,8 +89,8 @@ for( x &amp;lt;- list) println(x) this will be translated by the Scala compiler 
       <pubDate>Sun, 17 Jul 2016 00:00:00 +0000</pubDate>
       
       <guid>https://davidblitz.github.io/2016/07/17/2016-07-17-erastothenes-sieve/</guid>
-      <description>It turns out that you can implement the core of Erastothenes&#39; Sieve in one line of Scala code:
-def sieve(stream: Stream[Int]): Stream[Int] = stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0)) (btw the #:: sign is for prepending an element to a Stream[T] object)
+      <description>It turns out that you can implement the core of Erastothenes&amp;rsquo; Sieve in one line of Scala code:
+def sieve(stream: Stream[Int]): Stream[Int] =  stream.head #:: sieve(stream.tail.filter(k =&amp;gt; k%sieve.head != 0)) (btw the #:: sign is for prepending an element to a Stream[T] object)
 Now, I cheated a bit and you still have to call the sieve function with a stream of all Int&amp;rsquo;s &amp;gt; 1. But this is not verbose at all:</description>
     </item>
     

@@ -10,7 +10,7 @@ In the following, I wanna first give an intuitive explanation of this so called 
 An Intuitive Explanation As you might have guessed, Banker&rsquo;s Rounding always rounds a real number r to the next even number whenever there is two equally distant integers a, a&#43;1 next to r, i.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.89.4" />
+        <meta name="generator" content="Hugo 0.98.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="Do it like a Bankster - Rounding">
@@ -84,26 +84,26 @@ An Intuitive Explanation As you might have guessed, Banker&rsquo;s Rounding alwa
 
     <p>Let&rsquo;s talk about rounding! I challenge you to type in the
 following in a Python3 REPL and not be surprised:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">round(<span style="color:#ae81ff">41.5</span>)
-round(<span style="color:#ae81ff">42.5</span>)
-</code></pre></div><p>&hellip; I thought so!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>round(<span style="color:#ae81ff">41.5</span>)
+</span></span><span style="display:flex;"><span>round(<span style="color:#ae81ff">42.5</span>)
+</span></span></code></pre></div><p>&hellip; I thought so!</p>
 <p>In the following, I wanna first give an intuitive explanation of this so called &ldquo;Banker&rsquo;s Rounding&rdquo; method and then give some examples where this Rounding Method is of some use.</p>
 <h2 id="an-intuitive-explanation">An Intuitive Explanation</h2>
 <p>As you might have guessed, Banker&rsquo;s Rounding always rounds a real number r
 to the next even number whenever there is two equally distant integers a, a+1 next to r, i.e. r = x.5 where x is a sequence of digits.</p>
 <p>The usual method for resolving this tie-situation, is to always round up. The downside of this method is a systematic error, or bias. This becomes clear when we type in the following in our REPL.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-l <span style="color:#f92672">=</span> [i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
-l_commonly_rounded <span style="color:#f92672">=</span> [math<span style="color:#f92672">.</span>ceil(r) <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> l]
-l_bankster_rounded <span style="color:#f92672">=</span> [round(r) <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> l]
-</code></pre></div><p>Notice that the <code>math.ceil</code> function yields the same result as the grade school rounding method in this special case.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>l <span style="color:#f92672">=</span> [i <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)]
+</span></span><span style="display:flex;"><span>l_commonly_rounded <span style="color:#f92672">=</span> [math<span style="color:#f92672">.</span>ceil(r) <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> l]
+</span></span><span style="display:flex;"><span>l_bankster_rounded <span style="color:#f92672">=</span> [round(r) <span style="color:#66d9ef">for</span> r <span style="color:#f92672">in</span> l]
+</span></span></code></pre></div><p>Notice that the <code>math.ceil</code> function yields the same result as the grade school rounding method in this special case.
 Now, let&rsquo;s compare the average error we made by rounding with each of these methods:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">zip1 <span style="color:#f92672">=</span> zip(l_commonly_rounded, l)
-zip2 <span style="color:#f92672">=</span> zip(l_bankster_rounded, l)
-
-mean_error1 <span style="color:#f92672">=</span> sum([a<span style="color:#f92672">-</span>r <span style="color:#66d9ef">for</span> (a, r) <span style="color:#f92672">in</span> zip1])<span style="color:#f92672">/</span>len(zip1)
-mean_error2 <span style="color:#f92672">=</span> sum([a<span style="color:#f92672">-</span>r <span style="color:#66d9ef">for</span> (a, r) <span style="color:#f92672">in</span> zip2])<span style="color:#f92672">/</span>len(zip2)
-</code></pre></div><p>As you can see, since we always rounded up with the common method, we get an average error of 0.5, whereas in this specific example the Banker&rsquo;s Method did very well:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>zip1 <span style="color:#f92672">=</span> zip(l_commonly_rounded, l)
+</span></span><span style="display:flex;"><span>zip2 <span style="color:#f92672">=</span> zip(l_bankster_rounded, l)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mean_error1 <span style="color:#f92672">=</span> sum([a<span style="color:#f92672">-</span>r <span style="color:#66d9ef">for</span> (a, r) <span style="color:#f92672">in</span> zip1])<span style="color:#f92672">/</span>len(zip1)
+</span></span><span style="display:flex;"><span>mean_error2 <span style="color:#f92672">=</span> sum([a<span style="color:#f92672">-</span>r <span style="color:#66d9ef">for</span> (a, r) <span style="color:#f92672">in</span> zip2])<span style="color:#f92672">/</span>len(zip2)
+</span></span></code></pre></div><p>As you can see, since we always rounded up with the common method, we get an average error of 0.5, whereas in this specific example the Banker&rsquo;s Method did very well:
 the errors cancelled out and the average error is zero.</p>
 <p>Notice, that if we had taken the absolute values of the differences, as our measure of error, the result would have been equally good or bad for both methods. So what this experiment is telling us, is that rounding to even numbers performs well on <em>sums</em>, not <em>individual</em> numbers, where the absolute error is always 0.5, obviously.</p>
 <h2 id="applications">Applications</h2>
@@ -169,7 +169,7 @@ the errors cancelled out and the average error is zero.</p>
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -178,7 +178,7 @@ the errors cancelled out and the average error is zero.</p>
             </div>
         </footer>
 
-        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+	        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
         
         
@@ -186,8 +186,35 @@ the errors cancelled out and the average error is zero.</p>
         
         
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
     </body>
 </html>
 

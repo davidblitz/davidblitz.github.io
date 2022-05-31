@@ -9,7 +9,7 @@ As one can see, this a standard scatterplot of a two dimensional dataset togethe
 import pandas as pd import seaborn as sns .">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.89.4" />
+        <meta name="generator" content="Hugo 0.98.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="One-Liners in Python - Linear Regression Plot">
@@ -84,13 +84,13 @@ import pandas as pd import seaborn as sns .">
 the truly beautiful <a href="https://stanford.edu/~mwaskom/software/seaborn/index.html">Seaborn Library</a> which produces plots like the following.</p>
 <p><img src="/images/2016-10-07-linearregression.png" alt="plot"></p>
 <p>As one can see, this a standard scatterplot of a two dimensional dataset together with a regression line fitted to it - the light blue shade indicates a 95% confidence interval btw. It turns out that creating this standard diagram is as easy as</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
-<span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
-<span style="color:#f92672">...</span>
-<span style="color:#75715e">#create/load your pandas dataframe here</span>
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your_dataframe_column1&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your_dataframe_column2&#34;</span>,
-            data<span style="color:#f92672">=</span>your_pandas_dataframe)
-</code></pre></div><p>Of course, you might need to have a <a href="http://pandas.pydata.org/pandas-docs/stable/10min.html#min">10 minute look at Pandas</a>, as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#create/load your pandas dataframe here</span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your_dataframe_column1&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;your_dataframe_column2&#34;</span>,
+</span></span><span style="display:flex;"><span>            data<span style="color:#f92672">=</span>your_pandas_dataframe)
+</span></span></code></pre></div><p>Of course, you might need to have a <a href="http://pandas.pydata.org/pandas-docs/stable/10min.html#min">10 minute look at Pandas</a>, as well.</p>
 
 </div>
 
@@ -144,7 +144,7 @@ sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</s
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -153,7 +153,7 @@ sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</s
             </div>
         </footer>
 
-        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+	        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
         
         
@@ -161,8 +161,35 @@ sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</s
         
         
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
     </body>
 </html>
 

@@ -7,7 +7,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Wed, 29 Dec 2021 11:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 May 2022 00:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>connected</title>
+      <link>https://davidblitz.github.io/tags/connected/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/connected/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distribution</title>
+      <link>https://davidblitz.github.io/tags/distribution/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graph</title>
+      <link>https://davidblitz.github.io/tags/graph/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markov chain monte carlo</title>
+      <link>https://davidblitz.github.io/tags/markov-chain-monte-carlo/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/markov-chain-monte-carlo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mcmc</title>
+      <link>https://davidblitz.github.io/tags/mcmc/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/mcmc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metropolis-hastings</title>
+      <link>https://davidblitz.github.io/tags/metropolis-hastings/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/metropolis-hastings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>non-isomorphic</title>
+      <link>https://davidblitz.github.io/tags/non-isomorphic/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/non-isomorphic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oeis</title>
+      <link>https://davidblitz.github.io/tags/oeis/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/oeis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uniform</title>
+      <link>https://davidblitz.github.io/tags/uniform/</link>
+      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/uniform/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>acyclic</title>
       <link>https://davidblitz.github.io/tags/acyclic/</link>
@@ -68,15 +149,6 @@
       <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/nilpotent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>oeis</title>
-      <link>https://davidblitz.github.io/tags/oeis/</link>
-      <pubDate>Wed, 29 Dec 2021 11:00:29 +0100</pubDate>
-      
-      <guid>https://davidblitz.github.io/tags/oeis/</guid>
       <description></description>
     </item>
     

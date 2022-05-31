@@ -16,7 +16,7 @@
       <guid>https://davidblitz.github.io/2021/12/29/2021-12-29-bohemian-matrices/</guid>
       <description>In the past year, I found a short elementary proof of Conjecture 6 on this website on bohemian matrices which is currently still marked as &amp;ldquo;open&amp;rdquo;.
 Bohemian matrices are just matrices with all entries being integers.
-The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \({ 0, 1, 2 } \) in dimension \(n\) is equal to the definition of the sequence A188457 of the OEIS.</description>
+The conjecture states that the number \( a(n) \) of nilpotent matrices with entries in \(\{ 0, 1, 2 \} \) and of dimension \(n \times n \) is equal to the definition of the sequence A188457 of the OEIS.</description>
     </item>
     
   </channel>

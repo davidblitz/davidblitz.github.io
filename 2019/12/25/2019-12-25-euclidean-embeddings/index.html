@@ -8,7 +8,7 @@
 Let&rsquo;s consider an isometric mapping from a graph with a path distance metric to \(N\)-dimensional euclidean space for instance: \( f: G \rightarrow \mathbb{E}^N \). Isometric means that the distances between each two vertices \(v, w \in G\) is preserved by \(f\), i.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.89.4" />
+        <meta name="generator" content="Hugo 0.98.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="Euclidean Isometries of Graphs">
@@ -243,7 +243,7 @@ I will try to follow up in a future post with a different solution though, which
                 </div>
 
                 <p class="footer-copyright">
-                    <span>&copy; 2021 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
                 </p>
                 <p class="footer-copyright">
                     <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
@@ -252,7 +252,7 @@ I will try to follow up in a future post with a different solution though, which
             </div>
         </footer>
 
-        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+	        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
         <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
         
         
@@ -260,8 +260,35 @@ I will try to follow up in a future post with a different solution though, which
         
         
         <script src="https://davidblitz.github.io/js/scripts.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
     </body>
 </html>
 
