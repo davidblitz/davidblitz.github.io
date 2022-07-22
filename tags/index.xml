@@ -7,7 +7,79 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>davidblitz</copyright>
-    <lastBuildDate>Tue, 31 May 2022 00:00:29 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jul 2022 12:42:13 +0200</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>convergence</title>
+      <link>https://davidblitz.github.io/tags/convergence/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/convergence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mcmc</title>
+      <link>https://davidblitz.github.io/tags/mcmc/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/mcmc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>metropolis-hastings</title>
+      <link>https://davidblitz.github.io/tags/metropolis-hastings/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/metropolis-hastings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mixing time</title>
+      <link>https://davidblitz.github.io/tags/mixing-time/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/mixing-time/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>random walk</title>
+      <link>https://davidblitz.github.io/tags/random-walk/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/random-walk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>state space</title>
+      <link>https://davidblitz.github.io/tags/state-space/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/state-space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>step distribution</title>
+      <link>https://davidblitz.github.io/tags/step-distribution/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/step-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>total variation distance</title>
+      <link>https://davidblitz.github.io/tags/total-variation-distance/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/tags/total-variation-distance/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>connected</title>
       <link>https://davidblitz.github.io/tags/connected/</link>
@@ -41,24 +113,6 @@
       <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
       
       <guid>https://davidblitz.github.io/tags/markov-chain-monte-carlo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mcmc</title>
-      <link>https://davidblitz.github.io/tags/mcmc/</link>
-      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
-      
-      <guid>https://davidblitz.github.io/tags/mcmc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>metropolis-hastings</title>
-      <link>https://davidblitz.github.io/tags/metropolis-hastings/</link>
-      <pubDate>Tue, 31 May 2022 00:00:29 +0100</pubDate>
-      
-      <guid>https://davidblitz.github.io/tags/metropolis-hastings/</guid>
       <description></description>
     </item>
     

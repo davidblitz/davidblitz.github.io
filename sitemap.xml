@@ -3,7 +3,40 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://davidblitz.github.io/</loc>
-    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/convergence/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/2022/07/22/2022-07-22-convergence-mcmc/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/mcmc/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/metropolis-hastings/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/mixing-time/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/post/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/random-walk/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/state-space/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/step-distribution/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
+  </url><url>
+    <loc>https://davidblitz.github.io/tags/total-variation-distance/</loc>
+    <lastmod>2022-07-22T12:42:13+02:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/connected/</loc>
     <lastmod>2022-05-31T00:00:29+01:00</lastmod>
@@ -17,22 +50,10 @@
     <loc>https://davidblitz.github.io/tags/markov-chain-monte-carlo/</loc>
     <lastmod>2022-05-31T00:00:29+01:00</lastmod>
   </url><url>
-    <loc>https://davidblitz.github.io/tags/mcmc/</loc>
-    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/tags/metropolis-hastings/</loc>
-    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
-  </url><url>
     <loc>https://davidblitz.github.io/tags/non-isomorphic/</loc>
     <lastmod>2022-05-31T00:00:29+01:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/oeis/</loc>
-    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/post/</loc>
-    <lastmod>2022-05-31T00:00:29+01:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/tags/</loc>
     <lastmod>2022-05-31T00:00:29+01:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/tags/uniform/</loc>
@@ -100,9 +121,6 @@
   </url><url>
     <loc>https://davidblitz.github.io/2016/10/07/2016-10-07-linear-regression/</loc>
     <lastmod>2016-10-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://davidblitz.github.io/2016/08/09/2016-08-09-bankers-rounding/</loc>
-    <lastmod>2016-08-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://davidblitz.github.io/2016/08/01/2016-08-01-for-expressions/</loc>
     <lastmod>2016-08-01T00:00:00+00:00</lastmod>

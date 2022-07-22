@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>state space on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/state-space/</link>
+    <description>Recent content in state space on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Fri, 22 Jul 2022 12:42:13 +0200</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/state-space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Measure Convergence of MCMC Methods?</title>
+      <link>https://davidblitz.github.io/2022/07/22/2022-07-22-convergence-mcmc/</link>
+      <pubDate>Fri, 22 Jul 2022 12:42:13 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/2022/07/22/2022-07-22-convergence-mcmc/</guid>
+      <description>In the last post, we have seen a method for producing a series of samples of connected simple graphs where each sample exclusively depends on the previous sample. In this post, we will provide some statements of theorems and definitions which were a bit implicit in the previous post.
+The Metropolis-Hastings method that we chose in the last post guarantees that our series of samples will at some point &amp;rsquo;look&amp;rsquo; like it has been drawn independently from our target distribution.</description>
+    </item>
+    
+  </channel>
+</rss>
