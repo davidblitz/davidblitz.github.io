@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mutual Information and Generalization &middot; David Blitz</title>
+        <meta name="description" content="I(T, Y) as Measure of Performance The generalization error is bounded more or less by $$ (n-1) \text{exp} \big( -\frac{n}{|Y|-1} I(Z, Y) \big) $$ This follows from Stein&rsquo;s Lemma [REF!], the definition of mutual information and the convexity of the KL-Divergence [see Shamir, Sabato and Tishby, 2008].
+First Principles For Learning Representations At first, let&rsquo;s not start to try to minimize generalization error but by stipulating desirable properties of a representation \(Z\)of our data \(X\) for a task \(Y\).">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.101.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Mutual Information and Generalization">
+<meta property="og:description" content="I(T, Y) as Measure of Performance The generalization error is bounded more or less by $$ (n-1) \text{exp} \big( -\frac{n}{|Y|-1} I(Z, Y) \big) $$ This follows from Stein&rsquo;s Lemma [REF!], the definition of mutual information and the convexity of the KL-Divergence [see Shamir, Sabato and Tishby, 2008].
+First Principles For Learning Representations At first, let&rsquo;s not start to try to minimize generalization error but by stipulating desirable properties of a representation \(Z\)of our data \(X\) for a task \(Y\).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidblitz.github.io/2019/02/04/mutual-information-and-generalization/">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://davidblitz.github.io/">BlitzBlog</a>
+                            </h1>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/davidblitz" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+		
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Mutual Information and Generalization</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2019-02-04" itemprop="datePublished">Mon, Feb 4, 2019</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
+            </span>
+        </span>
+    </p>
+    
+    
+</header>
+
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <h1 id="it-y-as-measure-of-performance">I(T, Y) as Measure of Performance</h1>
+<p>The generalization error is bounded more or less by
+$$
+(n-1) \text{exp} \big( -\frac{n}{|Y|-1} I(Z, Y) \big)
+$$
+This follows from Stein&rsquo;s Lemma [REF!], the definition of
+mutual information and the convexity of the KL-Divergence [see Shamir, Sabato and Tishby, 2008].</p>
+<h1 id="first-principles-for-learning-representations">First Principles For Learning Representations</h1>
+<p>At first, let&rsquo;s not start to try to minimize generalization error but by stipulating desirable properties
+of a representation \(Z\)of our data \(X\) for a task \(Y\).
+$$
+X \rightarrow Z \rightarrow Y
+$$
+[CHECK OUT BAHADUR]
+.</p>
+<ul>
+<li>
+<p>Sufficiency for the task: \(I(Z, Y) = I(X, Y)\)</p>
+</li>
+<li>
+<p>Minimality of representation: \( I(X, Z) \) minimal</p>
+</li>
+<li>
+<p>Invariance to noise: \(N \perp Y \Rightarrow I(N, Z) = 0\) [insensitivity]</p>
+</li>
+<li>
+<p>(Independent components: \( \text{TC}(z) := \text{KL} \big( p(Z) \mid \prod_i p(Z_i) \big) = 0 \) )</p>
+</li>
+</ul>
+<p>Corresponding optimization problem:
+&hellip;</p>
+<h1 id="invariance--leftrightarrow--minimality--mid--sufficiency">Invariance \( \Leftrightarrow \) Minimality \( \mid \) Sufficiency</h1>
+<p>Claim:
+$$
+I(N, Z) \leq I(X, Z) - I(X, Y)
+$$
+and there is a nuisance for which equality holds.
+[HOW DOES THIS IMPLY TITLE???]</p>
+<h1 id="what-happens-in-deep-learning">What happens in Deep Learning?</h1>
+<p>Representation computed from Training data via SGD:
+$$
+w = \text{arg}\text{min} H_{p, q}(D \mid w)
+$$
+[UNDERSTAND!!!]</p>
+<p>Massaging this we get the decomposition:
+$$
+H_{p, q} (\mathcal{D} \mid w) = A - I(\mathcal{D}, w \mid \theta),
+$$
+where \(A)\ is positive.
+[VERIFY!!!]
+If we minimize this aggressively, we end up with overfitting. [UNDERSTAND!!!]</p>
+<ul>
+<li>
+<p>In order to minimize overfitting, we want to minimize:
+$$
+H_{p, q} (\mathcal{D} \mid w) + I(\mathcal{D}, w \mid \theta)
+$$
+&ndash;&gt; This is intractable&hellip; [WHY???]</p>
+</li>
+<li>
+<p>Choose to upper-bound overfitting term (remove dependence on \(\theta\) ):
+$$
+L = H_{p, q}(\mathcal{D} \mid w) + \beta I(\mathcal{D}, w)
+$$
+&ndash;&gt; Information Bottleneck for Weights</p>
+</li>
+<li>
+<p>Can optimize with SGVB (Stochastic Gradient Variational Bayes) [HOW???] or inductive bias of SGD
+[jordan-kinderlehrer-otto &lsquo;97]</p>
+</li>
+</ul>
+<p>[CHECK OUT FOKKER-PLANCK EQUATION]
+There is a Duality Bound:
+$$
+g(I(w, \mathcal{D})) \leq \beta I(Z, X) + \gamma \text{TC} (Z) \leq g(I(w, \mathcal{D})) + c
+$$</p>
+<ul>
+<li>
+<p>Claim: minimality of the weights (a representation of the training set) induces disentanglement
+minimality (hence invariance) of the activations (a representation of the test datum)</p>
+</li>
+<li>
+<p>Tight for one layer</p>
+</li>
+</ul>
+<p>[see Achille, Soatto, June 2017 &ldquo;On the Emergence of Invariance and Disentanglement&hellip;&rdquo;]</p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="views">
+    <span class="views">
+    	<style>img {
+	  padding-top: 20px;
+	}
+	</style>
+        <img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fdavidblitz.github.io%2f2019%2f02%2f04%2fmutual-information-and-generalization%2f" alt="Views" />
+    </span>
+    </div>
+    <div class="share">
+    </div>
+</footer>
+
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://davidblitz.github.io/">BlitzBlog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://davidblitz.github.io/js/scripts.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
+    </body>
+</html>
+

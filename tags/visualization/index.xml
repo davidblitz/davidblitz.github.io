@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>visualization on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/visualization/</link>
+    <description>Recent content in visualization on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Fri, 08 Feb 2019 15:24:08 +0100</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visualizing Deep Neural Networks via Mutual Information</title>
+      <link>https://davidblitz.github.io/2019/02/08/mutual-information-and-dnn/</link>
+      <pubDate>Fri, 08 Feb 2019 15:24:08 +0100</pubDate>
+      
+      <guid>https://davidblitz.github.io/2019/02/08/mutual-information-and-dnn/</guid>
+      <description>This is a presentation about the article on &amp;ldquo;Opening the black box of Deep Neural Networks via Information&amp;rdquo; by Tishby and Schwartz-Ziv (2017).
+The Information Bottleneck Definition of Mutual Information: $$ I(X, Y) = \sum_{x, y} p(x, y)\text{log}\frac{p(x,y)}{p(x)p(y)} $$
+Properties of MI: $$ I(X, Y) = H(X) - H(X \mid Y) $$
+We can also write the conditional entropy on the RHS as: $$ H(X | Y) = \mathbb{E}_y [H(X | y)].</description>
+    </item>
+    
+  </channel>
+</rss>

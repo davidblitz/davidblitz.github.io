@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>More on Mixing Times &middot; David Blitz</title>
+        <meta name="description" content="In the [last post]({}), we defined convergence of a MCMC sampling scheme via the total variation distance of the $n$-step distribution $p^{n}s$ to the target distribution $\pi$. More specifically, the MCMC sampling scheme converges to the target distribution, if $d{TV}(p^n_s, \pi)$ converges to $0$ for $n \to \infty$ for each $s$ in our finite state space $S$. In this post, we will talk more about mixing times and motivate their study.">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.101.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="More on Mixing Times">
+<meta property="og:description" content="In the [last post]({}), we defined convergence of a MCMC sampling scheme via the total variation distance of the $n$-step distribution $p^{n}s$ to the target distribution $\pi$. More specifically, the MCMC sampling scheme converges to the target distribution, if $d{TV}(p^n_s, \pi)$ converges to $0$ for $n \to \infty$ for each $s$ in our finite state space $S$. In this post, we will talk more about mixing times and motivate their study.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidblitz.github.io/2022/08/04/2022-08-05-mixing-times/">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/site.css">
+        <link rel="stylesheet" href="https://davidblitz.github.io/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+        
+
+    </head>
+    <body>
+        
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://davidblitz.github.io/">BlitzBlog</a>
+                            </h1>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/davidblitz" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+		
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">More on Mixing Times</h1>
+    
+    <p class="post-date post-line">
+        <span>Published <time datetime="2022-08-04" itemprop="datePublished">Thu, Aug 4, 2022</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="https://github.com/davidblitz" itemprop="url" rel="author">David Blitz</a>
+            </span>
+        </span>
+    </p>
+    
+    
+</header>
+
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>In the [last post]({<!-- raw HTML omitted -->}), we defined convergence of a MCMC sampling scheme via the <em>total variation distance</em> of the $n$-step distribution $p^{n}<em>s$ to the target distribution $\pi$. More specifically, the MCMC sampling scheme converges to the target distribution, if $d</em>{TV}(p^n_s, \pi)$ converges to $0$ for $n \to \infty$ for each $s$ in our finite state space $S$.
+In this post, we will talk more about mixing times and motivate their study. It is mainly inspired by <a href="https://people.eecs.berkeley.edu/~sinclair/cs294/n7.pdf">these lecture notes by Alistair Sinclair</a>.</p>
+<h3 id="mixing-times">Mixing times</h3>
+<p>The speed of convergence can conveniently be quantified by a single number, the mixing time, $\tau_{mix}$.</p>
+<p>However, we first need to define a function $\tau : \mathbb{R}<em>+ \to \mathbb{N}$, which we will call $\epsilon$-mixing time as follows:
+$$
+\tau(\epsilon) := \min { N \in \mathbb{N} \mid d</em>{TV}( p^n_s, \pi ) \leq \epsilon, \forall n \geq N, \forall s \in S }
+$$
+In natural language we could say, that $\tau(\epsilon)$ tells us the minimal number of steps after which the $n$-step distribution is closer to the target distribution on the whole state space.</p>
+<p>Now, there is a neat lemma which allows us to define $\tau_{mix}$:
+According to <a href="https://people.eecs.berkeley.edu/~sinclair/cs294/n7.pdf">the lecture notes</a>, for a convergent MCMC sampling scheme and for $\epsilon &lt; \frac{1}{2}$, we have
+$$
+\tau(\epsilon) \leq \tau \left( \frac{1}{2e} \right) \cdot \lceil \log(\epsilon^{-1}) \rceil.
+$$
+Hence, setting $\tau_{mix} := \tau \left( \frac{1}{2e} \right)$, we have the elegant bound:
+$$
+\tau(\epsilon) \leq \tau_{mix} \cdot \lceil \log(\epsilon^{-1}) \rceil.
+$$</p>
+<p>When it comes to theoretically analysing MCMC sampling schemes, one often considers families of state spaces and target distributions ${ (S_i, \pi_i) }<em>{i \in \mathbb{N}}$ with a sampling scheme that converges for each $i \in \mathbb{N}$. When we look at the corresponding mixing times $\tau</em>{mix}(i)$, an important question is, if they are polynomial in $i$. In this case, the MCMC method is called <em>rapidly mixing</em>.</p>
+<h3 id="outlook">Outlook</h3>
+<p>Many techniques have been developed, in order to prove upper bounds on mixing times for a given sampling scheme and I hope that in the future I&rsquo;ll be able to apply some of these techniques successfully to my [original problem]({&lt;relref path=´2022-05-31-graph-mcmc.md&rsquo;&gt;}) of uniformly sampling simple, connected and non-isomorphic graphs on a fixed number of vertices.</p>
+
+</div>
+
+        <footer class="post-footer clearfix"><div class="views">
+    <span class="views">
+    	<style>img {
+	  padding-top: 20px;
+	}
+	</style>
+        <img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fdavidblitz.github.io%2f2022%2f08%2f04%2f2022-08-05-mixing-times%2f" alt="Views" />
+    </span>
+    </div>
+    <div class="share">
+    </div>
+</footer>
+
+
+        
+    </article>
+</div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://davidblitz.github.io/">BlitzBlog</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <p class="footer-copyright">
+                    <span>&copy; 2022 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
+
+        <script src="https://davidblitz.github.io/js/jquery-1.11.3.min.js"></script>
+        <script src="https://davidblitz.github.io/js/jquery.fitvids.js"></script>
+        <script src="https://davidblitz.github.io/js/scripts.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    startup: {
+      pageReady() {
+        return MathJax.startup.defaultPageReady().then(function () {
+          var all = window.MathJax.startup.document.getMathItemsWithin(document.body), i;
+          for(i = 0; i < all.length; i += 1) {
+            console.log(all[i])
+            all[i].start.node.parentNode.className += ' has-jax';
+          }
+        });
+      }
+    }
+  };
+  </script>
+
+        
+    </body>
+</html>
+

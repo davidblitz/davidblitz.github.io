@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rapid mixing on BlitzBlog</title>
+    <link>https://davidblitz.github.io/tags/rapid-mixing/</link>
+    <description>Recent content in rapid mixing on BlitzBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>davidblitz</copyright>
+    <lastBuildDate>Thu, 04 Aug 2022 12:43:37 +0200</lastBuildDate><atom:link href="https://davidblitz.github.io/tags/rapid-mixing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>More on Mixing Times</title>
+      <link>https://davidblitz.github.io/2022/08/04/2022-08-04-mixing-times/</link>
+      <pubDate>Thu, 04 Aug 2022 12:43:37 +0200</pubDate>
+      
+      <guid>https://davidblitz.github.io/2022/08/04/2022-08-04-mixing-times/</guid>
+      <description>In the last post, we defined convergence of an MCMC sampling algorithm via the total variation distance of the $n$-step distribution $p^n_s$ to the target distribution $\pi$. More specifically, the MCMC algorithm converges to the target distribution, if $d_{TV}(p^n_s, \pi)$ converges to $0$ for $n \to \infty$ for each $s$ in our finite state space $S$. In this post, we will talk more about mixing times and motivate their study. It is mainly inspired by these lecture notes by Alistair Sinclair.</description>
+    </item>
+    
+  </channel>
+</rss>
